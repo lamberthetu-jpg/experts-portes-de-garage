@@ -8,22 +8,16 @@ export default function GarageHouse() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const windowH = window.innerHeight;
+      // Door closed at top of page, fully open after scrolling 400px
+      const scrollY = window.scrollY;
+      const maxScroll = 400;
 
-      // Start opening when the component enters the viewport,
-      // fully open when its top reaches ~40% from the top of the screen
-      const start = windowH;
-      const end = windowH * 0.35;
-      const current = rect.top;
-
-      if (current >= start) {
+      if (scrollY <= 0) {
         setOpenPercent(0);
-      } else if (current <= end) {
+      } else if (scrollY >= maxScroll) {
         setOpenPercent(100);
       } else {
-        setOpenPercent(((start - current) / (start - end)) * 100);
+        setOpenPercent((scrollY / maxScroll) * 100);
       }
     };
 

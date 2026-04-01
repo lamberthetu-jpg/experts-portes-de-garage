@@ -80,7 +80,7 @@ export default function RemplacementCoupeFroidPage() {
               </nav>
 
               {/* Urgency badge */}
-              <div className="inline-flex items-center gap-2 bg-brand/20 border border-brand/50 text-brand rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider mb-5 animate-heartbeat">
+              <div className="inline-flex items-center gap-2 bg-brand/20 border border-brand/50 text-brand rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider mb-5">
                 <span className="w-2 h-2 bg-brand rounded-full" />
                 Offre limitée — Printemps 2025
               </div>
@@ -263,7 +263,7 @@ export default function RemplacementCoupeFroidPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(220,38,38,0.15),transparent_60%)]" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-brand/20 border border-brand/40 text-brand rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider mb-6">
-            <span className="w-2 h-2 bg-brand rounded-full animate-pulse" />
+            <span className="w-2 h-2 bg-brand rounded-full" />
             Offre exclusive — Durée limitée
           </div>
           <h2 className="font-heading text-3xl md:text-5xl text-white uppercase leading-tight mb-5">

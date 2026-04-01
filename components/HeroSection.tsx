@@ -1,5 +1,5 @@
-import Image from "next/image";
 import PlanifierButton from "@/components/PlanifierButton";
+import GarageHouse from "@/components/GarageHouse";
 
 export default function HeroSection() {
   return (
@@ -31,14 +31,7 @@ export default function HeroSection() {
         </div>
 
         <div className="flex-1 flex justify-center w-full">
-          <Image
-            src="/images/camion.webp"
-            alt="Technicien Experts Portes de Garage"
-            width={540}
-            height={540}
-            className="object-cover w-[80%] md:w-full md:max-w-lg drop-shadow-2xl"
-            priority
-          />
+          <GarageHouse />
         </div>
       </div>
     </section>

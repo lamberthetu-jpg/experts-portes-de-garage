@@ -16,7 +16,7 @@ interface Motor {
 
 const MOTORS: Motor[] = [
   {
-    image: "/moteur_maxum.jpg",
+    image: "/images/moteurs/moteur_maxum.jpg",
     name: "LiftMaster MAXUM",
     tagline: "Moteur commercial intensif",
     price: "3 400$",
@@ -25,7 +25,7 @@ const MOTORS: Motor[] = [
     specs: ["Poids max 700 lb", "Vitesse 12 po/sec", "Wi-Fi myQ", "Soft start/stop", "Batterie de secours optionnelle", "Écran LCD"],
   },
   {
-    image: "/moteur_lj_8900W.png",
+    image: "/images/moteurs/moteur_lj_8900W.png",
     name: "LiftMaster LJ8900W",
     tagline: "Moteur commercial compact",
     price: "800$",
@@ -34,7 +34,7 @@ const MOTORS: Motor[] = [
     specs: ["Poids max 300 lb", "Moteur DC 12V", "Wi-Fi myQ", "Installation murale jackshaft", "Ultra silencieux"],
   },
   {
-    image: "/moteur_DDO8900W.png",
+    image: "/images/moteurs/moteur_DDO8900W.png",
     name: "LiftMaster DDO8900W",
     tagline: "Moteur pour porte de quai",
     price: "À partir de 1 200$",

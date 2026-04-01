@@ -8,21 +8,21 @@ const sealTypes = [
     label: "Joint de bas de porte",
     desc: "Le caoutchouc fixé au bas du panneau inférieur. Amortit le contact avec le sol et bloque les infiltrations. Le plus sollicité — et le plus souvent à remplacer.",
     detail: "Ce joint absorbe les chocs à chaque ouverture et fermeture. Il est en contact direct avec le sol, la neige et l'eau. Un joint de bas de porte usé laisse passer l'air froid, l'eau et les insectes sous la porte.",
-    image: "/images/joint_de_bas_de_portes_de_garage.jpg",
+    image: "/images/coupe-froid/joint_de_bas_de_portes_de_garage.jpg",
   },
   {
     id: "lateraux",
     label: "Joints latéraux et de tête",
     desc: "Bandes d'étanchéité le long des montants verticaux et du haut du cadre. Empêchent l'air et l'eau de s'infiltrer sur les côtés et par le dessus.",
     detail: "Les joints latéraux et de tête forment un seul et même produit qui court sur les trois côtés du cadre. Souvent négligés, leur dégradation crée des courants d'air sur toute la hauteur et la largeur de la porte — particulièrement visible en hiver.",
-    image: "/images/coupe_froid_de_cote.jpg",
+    image: "/images/coupe-froid/coupe_froid_de_cote.jpg",
   },
   {
     id: "reteneur",
     label: "Reteneur du bas",
     desc: "Rail en aluminium ou PVC qui retient le caoutchouc d'étanchéité en forme de U au bas de la porte. Le reteneur du bas guide et maintient le caoutchouc en place pour une étanchéité optimale et durable.",
     detail: "Rail en aluminium ou PVC qui retient le caoutchouc d'étanchéité en forme de U au bas de la porte. Le reteneur du bas guide et maintient le caoutchouc en place pour une étanchéité optimale et durable.",
-    image: "/images/reteneur_du_bas_porte_de_garage.jpg",
+    image: "/images/coupe-froid/reteneur_du_bas_porte_de_garage.jpg",
   },
 ];
 

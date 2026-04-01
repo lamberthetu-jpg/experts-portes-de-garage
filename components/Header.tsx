@@ -42,7 +42,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="shrink-0">
           <Image
-            src="/logo_experts.png"
+            src="/images/logo_experts.png"
             alt="Experts Portes de Garage"
             width={320}
             height={100}

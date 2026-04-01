@@ -11,7 +11,7 @@ import AnimatedSteps from "@/components/AnimatedSteps";
 import { WeatherSealBookingProvider } from "@/context/WeatherSealBookingContext";
 
 const HERO_BG =
-  "/images/page_coupe_froid_background.jpg";
+  "/images/coupe-froid/page_coupe_froid_background.jpg";
 const LOGO_SRC =
   "/images/logo.webp";
 

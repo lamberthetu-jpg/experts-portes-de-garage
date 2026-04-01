@@ -329,7 +329,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         {/* Header */}
         <div className="bg-brand px-6 py-4 flex items-center justify-between gap-4">
           <Image
-            src="/logo_experts.png"
+            src="/images/logo_experts.png"
             alt="Experts Portes de Garage"
             width={140}
             height={46}

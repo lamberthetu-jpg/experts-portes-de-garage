@@ -178,7 +178,7 @@ export default function ReparationUrgenteDePorteDeGaragePage() {
         {/* ── Hardcoded image+text sections ── */}
         {[
           {
-            img: "/images/joint_de_bas_de_portes_de_garage.jpg",
+            img: "/images/coupe-froid/joint_de_bas_de_portes_de_garage.jpg",
             title: "Votre porte de garage ne s'ouvre plus ou ne se ferme plus ?",
             content: `Plusieurs causes peuvent expliquer ce problème. L'une des plus fréquentes est une défaillance de la roue d'entraînement principale du moteur, souvent causée par une porte déséquilibrée, une chaîne ou une courroie trop tendue, une utilisation fréquente ou simplement l'usure avec le temps. D'autres raisons possibles incluent des capteurs mal alignés, un problème électrique ou un moteur défectueux.\n\nAvant d'appeler un technicien, assurez-vous que l'ouvre-porte est bien branché et que les capteurs de sécurité ne sont pas obstrués. Si le problème persiste, une inspection professionnelle est fortement recommandée.`,
             list: null as string[] | null,
@@ -205,7 +205,7 @@ export default function ReparationUrgenteDePorteDeGaragePage() {
             ],
           },
           {
-            img: "/images/coupe_froid_de_cote.jpg",
+            img: "/images/coupe-froid/coupe_froid_de_cote.jpg",
             title: "Votre télécommande de porte de garage ne fonctionne plus ?",
             content: `Si votre porte et votre ouvre-porte semblent en bon état, mais que la télécommande ne répond plus, le problème peut provenir de plusieurs causes :\n\nEssayez de remplacer les piles, de reprogrammer la télécommande ou de vous rapprocher de l'ouvre-porte lorsque vous l'utilisez. Si le problème persiste, il est conseillé de faire appel à un technicien pour un diagnostic et une réparation professionnelle.`,
             list: [

@@ -199,6 +199,35 @@ export default async function ProductDetailPage(
                   />
                 </div>
 
+                <div className="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                  <p className="flex items-center gap-2 text-sm font-semibold text-[#1a1a1a]">
+                    <svg
+                      className="h-4 w-4 text-[#cc0000]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    Options de livraison
+                  </p>
+                  <ul className="mt-2 flex flex-col gap-1 text-xs text-gray-600">
+                    <li className="flex justify-between">
+                      <span>Ramassage en magasin (Granby)</span>
+                      <span className="font-semibold text-green-700">Gratuit</span>
+                    </li>
+                    <li className="flex justify-between">
+                      <span>Livraison Estrie / Montérégie</span>
+                      <span className="font-semibold">19,99 $</span>
+                    </li>
+                  </ul>
+                </div>
+
                 <div className="mt-4 flex items-center justify-center gap-4 border-t border-gray-100 pt-4 text-xs text-gray-500">
                   <span className="flex items-center gap-1.5">
                     <svg

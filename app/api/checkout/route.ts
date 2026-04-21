@@ -55,6 +55,33 @@ export async function POST(request: NextRequest) {
       success_url: `${origin}/produits/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/produits/cancel`,
       locale: "fr-CA",
+      shipping_address_collection: {
+        allowed_countries: ["CA"],
+      },
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: "fixed_amount",
+            fixed_amount: { amount: 0, currency: "cad" },
+            display_name: "Ramassage en magasin (Granby)",
+            delivery_estimate: {
+              minimum: { unit: "business_day", value: 1 },
+              maximum: { unit: "business_day", value: 2 },
+            },
+          },
+        },
+        {
+          shipping_rate_data: {
+            type: "fixed_amount",
+            fixed_amount: { amount: 1999, currency: "cad" },
+            display_name: "Livraison Estrie / Montérégie",
+            delivery_estimate: {
+              minimum: { unit: "business_day", value: 2 },
+              maximum: { unit: "business_day", value: 5 },
+            },
+          },
+        },
+      ],
     });
 
     return Response.json({ url: session.url });

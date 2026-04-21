@@ -43,6 +43,9 @@ export async function POST(request: NextRequest) {
             product_data: {
               name: product.name,
               description: product.description,
+              ...(product.image
+                ? { images: [`${origin}${product.image}`] }
+                : {}),
             },
             unit_amount: product.priceCents,
           },

@@ -5,34 +5,31 @@ import { getProduct } from "@/lib/products";
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripe = stripeSecretKey ? new Stripe(stripeSecretKey) : null;
 
-const PICKUP_OPTION: Stripe.Checkout.SessionCreateParams.ShippingOption = {
+const PICKUP_OPTION = {
   shipping_rate_data: {
-    type: "fixed_amount",
+    type: "fixed_amount" as const,
     fixed_amount: { amount: 0, currency: "cad" },
     display_name: "Ramassage en magasin (Granby)",
     delivery_estimate: {
-      minimum: { unit: "business_day", value: 1 },
-      maximum: { unit: "business_day", value: 2 },
+      minimum: { unit: "business_day" as const, value: 1 },
+      maximum: { unit: "business_day" as const, value: 2 },
     },
   },
 };
 
-const LOCAL_DELIVERY_OPTION: Stripe.Checkout.SessionCreateParams.ShippingOption =
-  {
-    shipping_rate_data: {
-      type: "fixed_amount",
-      fixed_amount: { amount: 1999, currency: "cad" },
-      display_name: "Livraison Estrie / Montérégie",
-      delivery_estimate: {
-        minimum: { unit: "business_day", value: 2 },
-        maximum: { unit: "business_day", value: 5 },
-      },
+const LOCAL_DELIVERY_OPTION = {
+  shipping_rate_data: {
+    type: "fixed_amount" as const,
+    fixed_amount: { amount: 1999, currency: "cad" },
+    display_name: "Livraison Estrie / Montérégie",
+    delivery_estimate: {
+      minimum: { unit: "business_day" as const, value: 2 },
+      maximum: { unit: "business_day" as const, value: 5 },
     },
-  };
+  },
+};
 
-function buildShippingOptions(
-  category: string,
-): Stripe.Checkout.SessionCreateParams.ShippingOption[] {
+function buildShippingOptions(category: string) {
   if (category === "Moteurs") {
     return [PICKUP_OPTION];
   }

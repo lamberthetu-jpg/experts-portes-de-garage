@@ -15,6 +15,7 @@ const serviceLinks = [
 ];
 
 const mainNavLinks = [
+  { href: "/produits", label: "Boutique" },
   { href: "/image-maison", label: "Image Maison" },
   { href: "/blog", label: "Blogue" },
   { href: "/a-propos", label: "À propos" },

@@ -164,6 +164,7 @@ export const PRODUCTS: Product[] = [
     priceCents: 5499,
     category: "Accessoires",
     emoji: "📡",
+    image: "/images/accessoires/telecommande-liftmaster.webp",
     longDescription:
       "Télécommande universelle programmable compatible avec plus de 90 % des ouvre-portes résidentiels sur le marché. Supporte les fréquences 300, 310, 315 et 390 MHz, ainsi que les protocoles Security+ et Security+ 2.0.",
     features: [

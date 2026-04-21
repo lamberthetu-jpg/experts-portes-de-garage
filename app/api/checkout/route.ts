@@ -5,6 +5,40 @@ import { getProduct } from "@/lib/products";
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripe = stripeSecretKey ? new Stripe(stripeSecretKey) : null;
 
+const PICKUP_OPTION: Stripe.Checkout.SessionCreateParams.ShippingOption = {
+  shipping_rate_data: {
+    type: "fixed_amount",
+    fixed_amount: { amount: 0, currency: "cad" },
+    display_name: "Ramassage en magasin (Granby)",
+    delivery_estimate: {
+      minimum: { unit: "business_day", value: 1 },
+      maximum: { unit: "business_day", value: 2 },
+    },
+  },
+};
+
+const LOCAL_DELIVERY_OPTION: Stripe.Checkout.SessionCreateParams.ShippingOption =
+  {
+    shipping_rate_data: {
+      type: "fixed_amount",
+      fixed_amount: { amount: 1999, currency: "cad" },
+      display_name: "Livraison Estrie / Montérégie",
+      delivery_estimate: {
+        minimum: { unit: "business_day", value: 2 },
+        maximum: { unit: "business_day", value: 5 },
+      },
+    },
+  };
+
+function buildShippingOptions(
+  category: string,
+): Stripe.Checkout.SessionCreateParams.ShippingOption[] {
+  if (category === "Moteurs") {
+    return [PICKUP_OPTION];
+  }
+  return [PICKUP_OPTION, LOCAL_DELIVERY_OPTION];
+}
+
 export async function POST(request: NextRequest) {
   if (!stripe) {
     return Response.json(
@@ -58,30 +92,7 @@ export async function POST(request: NextRequest) {
       shipping_address_collection: {
         allowed_countries: ["CA"],
       },
-      shipping_options: [
-        {
-          shipping_rate_data: {
-            type: "fixed_amount",
-            fixed_amount: { amount: 0, currency: "cad" },
-            display_name: "Ramassage en magasin (Granby)",
-            delivery_estimate: {
-              minimum: { unit: "business_day", value: 1 },
-              maximum: { unit: "business_day", value: 2 },
-            },
-          },
-        },
-        {
-          shipping_rate_data: {
-            type: "fixed_amount",
-            fixed_amount: { amount: 1999, currency: "cad" },
-            display_name: "Livraison Estrie / Montérégie",
-            delivery_estimate: {
-              minimum: { unit: "business_day", value: 2 },
-              maximum: { unit: "business_day", value: 5 },
-            },
-          },
-        },
-      ],
+      shipping_options: buildShippingOptions(product.category),
     });
 
     return Response.json({ url: session.url });

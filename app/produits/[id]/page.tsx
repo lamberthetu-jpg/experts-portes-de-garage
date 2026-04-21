@@ -216,16 +216,33 @@ export default async function ProductDetailPage(
                     </svg>
                     Options de livraison
                   </p>
-                  <ul className="mt-2 flex flex-col gap-1 text-xs text-gray-600">
-                    <li className="flex justify-between">
-                      <span>Ramassage en magasin (Granby)</span>
-                      <span className="font-semibold text-green-700">Gratuit</span>
-                    </li>
-                    <li className="flex justify-between">
-                      <span>Livraison Estrie / Montérégie</span>
-                      <span className="font-semibold">19,99 $</span>
-                    </li>
-                  </ul>
+                  {product.category === "Moteurs" ? (
+                    <div className="mt-2 flex flex-col gap-1 text-xs text-gray-600">
+                      <div className="flex justify-between">
+                        <span>Ramassage en magasin (Granby)</span>
+                        <span className="font-semibold text-green-700">
+                          Gratuit
+                        </span>
+                      </div>
+                      <p className="mt-1 text-[11px] italic text-gray-500">
+                        Ce produit est disponible en ramassage uniquement en
+                        raison de son poids et de ses dimensions.
+                      </p>
+                    </div>
+                  ) : (
+                    <ul className="mt-2 flex flex-col gap-1 text-xs text-gray-600">
+                      <li className="flex justify-between">
+                        <span>Ramassage en magasin (Granby)</span>
+                        <span className="font-semibold text-green-700">
+                          Gratuit
+                        </span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span>Livraison Estrie / Montérégie</span>
+                        <span className="font-semibold">19,99 $</span>
+                      </li>
+                    </ul>
+                  )}
                 </div>
 
                 <div className="mt-4 flex items-center justify-center gap-4 border-t border-gray-100 pt-4 text-xs text-gray-500">

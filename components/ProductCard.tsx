@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import type { Product } from "@/lib/products";
 import { formatPrice } from "@/lib/products";
@@ -36,8 +37,18 @@ export default function ProductCard({ product }: Props) {
 
   return (
     <div className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-      <div className="flex aspect-[4/3] items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 text-7xl transition group-hover:scale-105">
-        <span aria-hidden>{product.emoji}</span>
+      <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 transition group-hover:scale-105">
+        {product.image ? (
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            className="object-contain p-4"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        ) : (
+          <span aria-hidden className="text-7xl">{product.emoji}</span>
+        )}
       </div>
       <div className="flex flex-1 flex-col p-5">
         <span className="mb-2 inline-block w-fit rounded-full bg-[#cc0000]/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-[#cc0000]">

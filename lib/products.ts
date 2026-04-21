@@ -5,16 +5,18 @@ export type Product = {
   priceCents: number;
   category: string;
   emoji: string;
+  image?: string;
 };
 
 export const PRODUCTS: Product[] = [
   {
-    id: "moteur-liftmaster-12hp",
-    name: "Moteur LiftMaster 1/2 HP",
-    description: "Ouvre-porte résidentiel robuste, 1/2 HP. Idéal pour portes simples et doubles.",
+    id: "moteur-ddo-8900w",
+    name: "Moteur LiftMaster DDO 8900W",
+    description: "Ouvre-porte jackshaft mural commercial léger. Wi-Fi intégré avec myQ, verrou automatique, batterie de secours et Security+ 2.0. Pour portes jusqu'à 14 pi / 300 lb. Ouverture 50 % plus rapide. 120V / 2,0A.",
     priceCents: 44999,
     category: "Moteurs",
     emoji: "⚙️",
+    image: "/images/moteurs/ddo-8900w.webp",
   },
   {
     id: "ressort-torsion-paire",

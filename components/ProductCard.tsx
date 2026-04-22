@@ -20,40 +20,43 @@ export default function ProductCard({ product }: Props) {
             src={product.image}
             alt={product.name}
             fill
-            className="object-contain p-4"
-            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-contain p-3 sm:p-4"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
         ) : (
-          <span aria-hidden className="text-7xl">
+          <span aria-hidden className="text-5xl sm:text-7xl">
             {product.emoji}
           </span>
         )}
       </Link>
-      <div className="flex flex-1 flex-col p-5">
-        <span className="mb-2 inline-block w-fit rounded-full bg-[#cc0000]/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-[#cc0000]">
+      <div className="flex flex-1 flex-col p-3 sm:p-5">
+        <span className="mb-2 inline-block w-fit rounded-full bg-[#cc0000]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#cc0000] sm:px-2.5 sm:text-xs">
           {product.category}
         </span>
         <Link href={`/produits/${product.id}`} className="group/title">
-          <h3 className="font-heading text-xl text-[#1a1a1a] transition group-hover/title:text-[#cc0000]">
+          <h3 className="font-heading text-sm leading-tight text-[#1a1a1a] transition group-hover/title:text-[#cc0000] sm:text-xl">
             {product.name}
           </h3>
         </Link>
-        <p className="mt-2 flex-1 text-sm text-gray-600 line-clamp-3">
+        <p className="mt-2 hidden flex-1 text-sm text-gray-600 line-clamp-3 sm:block">
           {product.description}
         </p>
-        <div className="mt-4 flex items-center justify-between">
-          <span className="text-2xl font-bold text-[#1a1a1a]">
+        <div className="mt-3 flex items-center justify-between sm:mt-4">
+          <span className="text-lg font-bold text-[#1a1a1a] sm:text-2xl">
             {formatPrice(product.priceCents)}
           </span>
         </div>
-        <div className="mt-4 flex flex-col gap-2">
+        <div className="mt-3 flex flex-col gap-2 sm:mt-4">
           <Link
             href={`/produits/${product.id}`}
-            className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-center text-sm font-semibold text-[#1a1a1a] transition hover:border-[#cc0000] hover:text-[#cc0000]"
+            className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-center text-xs font-semibold text-[#1a1a1a] transition hover:border-[#cc0000] hover:text-[#cc0000] sm:rounded-xl sm:px-4 sm:py-2.5 sm:text-sm"
           >
             Voir détails
           </Link>
-          <BuyButton productId={product.id} />
+          <BuyButton
+            productId={product.id}
+            className="w-full rounded-lg bg-[#cc0000] px-3 py-2.5 text-xs font-semibold text-white transition hover:bg-[#aa0000] disabled:cursor-not-allowed disabled:opacity-60 sm:rounded-xl sm:px-4 sm:py-3 sm:text-sm"
+          />
         </div>
       </div>
     </div>

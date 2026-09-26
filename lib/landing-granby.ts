@@ -54,13 +54,40 @@ export const LANDING = {
   },
 
   /**
-   * Vrais avis Google seulement. Tableau vide = section masquée.
+   * Vrais avis Google seulement (fiche lue le 26 sept. 2026 : 7 avis, 4,9/5).
+   * Prénom + initiale, pas de ville (les avis Google ne la donnent pas).
+   * Tableau vide = section masquée.
    * N'invente jamais d'avis : c'est illégal et ça se retourne contre toi.
    */
-  avis: [] as { prenom: string; ville: string; texte: string }[],
+  avis: [
+    {
+      prenom: "Yvan P.",
+      ville: "",
+      etoiles: 5,
+      texte:
+        "Bon technicien. Prend le temps d'écouter le client. Donne un bon service. " +
+        "Répond à ses messages et ses appels. Je le recommande",
+    },
+    {
+      prenom: "Frédéric L.",
+      ville: "",
+      etoiles: 5,
+      texte:
+        "Service rapide, courtois et professionnel. Je suis très satisfait du nouveau " +
+        "moteur qui a été remplacé. Je recommande",
+    },
+    {
+      prenom: "Lucie L.",
+      ville: "",
+      etoiles: 4,
+      texte:
+        "Très bon service et service rapide et professionnel, travail très bien. " +
+        "Personne compétente et consciencieuse. Je vous le recommande sans hésiter",
+    },
+  ] as { prenom: string; ville: string; etoiles: number; texte: string }[],
 
   /** Lien vers ta fiche Google pour « Voir tous les avis ». */
-  lienAvisGoogle: null as string | null,
+  lienAvisGoogle: "https://g.page/r/CT-AI6_v4mdPEBM" as string | null,
 
   /** Villes desservies, affichées en texte (bon pour le référencement). */
   villes: [

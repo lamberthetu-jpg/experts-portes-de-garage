@@ -11,8 +11,8 @@
  */
 
 export const LANDING = {
-  /** Heures où tu réponds VRAIMENT en personne. null = la promesse est masquée. */
-  heuresReponse: null as string | null, // ex. "7 h à 20 h, 7 jours sur 7"
+  /** Disponibilité réelle, en phrase complète (affichée sous les boutons du hero). null = masquée. */
+  heuresReponse: "Urgences en tout temps, 7 jours sur 7" as string | null, // phrase complète, affichée telle quelle
 
   /** Rayon réel de déplacement, en km. Le même que la pub Google (45 km, vérifié dans Google Ads le 25 sept. 2026). */
   rayonKm: 45,
@@ -48,8 +48,8 @@ export const LANDING = {
 
   /** Réponses FAQ. null = la question est retirée de la page. */
   faq: {
-    soirEtFinDeSemaine: null as string | null, // ex. "Oui, jusqu'à 20 h en semaine et le samedi."
-    garantie: null as string | null,           // ex. "Pièces garanties 1 an, main-d'œuvre 90 jours."
+    soirEtFinDeSemaine: "Oui. Pour une urgence, je me déplace en tout temps, le soir comme la fin de semaine." as string | null,
+    garantie: "Oui. La main-d'œuvre est garantie 90 jours. Pour les pièces, la garantie dépend de la pièce : je vous la précise avant de l'installer." as string | null,
     paiements: null as string | null,          // ex. "Comptant, virement Interac et carte de crédit."
   },
 

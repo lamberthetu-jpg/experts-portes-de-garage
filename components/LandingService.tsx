@@ -129,7 +129,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
             <p className="mt-9 flex flex-wrap gap-x-3 gap-y-1 text-[13px] text-white/60">
               {LANDING.heuresReponse && (
                 <>
-                  <span>Réponse en direct de {LANDING.heuresReponse}</span>
+                  <span>{LANDING.heuresReponse}</span>
                   <span aria-hidden className="text-white/30">·</span>
                 </>
               )}

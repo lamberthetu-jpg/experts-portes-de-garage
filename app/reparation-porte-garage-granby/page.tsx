@@ -7,7 +7,7 @@ import { LANDING } from "@/lib/landing-granby";
 const URL_PAGE = "/reparation-porte-garage-granby";
 const TITRE = "Réparation de porte de garage à Granby | Ressort cassé, porte bloquée";
 const DESCRIPTION =
-  `Réparation de porte de garage à Granby et 35 km autour. Ressort cassé, câble brisé, ` +
+  `Réparation de porte de garage à Granby et 45 km autour. Ressort cassé, câble brisé, ` +
   `porte bloquée : réparé le jour même. Prix donné avant les travaux. ${PHONE_DISPLAY}.`;
 
 export const metadata: Metadata = {

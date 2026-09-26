@@ -2,6 +2,7 @@ import LandingService, { type ContenuLanding } from "@/components/LandingService
 
 /** Contenu de /reparation-porte-garage-granby : la page generale. */
 const CONTENU: ContenuLanding = {
+  source: "granby",
   barre: "Réparation de porte de garage · Granby",
   h1: "Réparation de porte de garage à Granby et environs",
   intro:

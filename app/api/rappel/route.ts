@@ -77,6 +77,8 @@ export async function POST(req: Request) {
 const PAGES = {
   granby: "Granby",
   depannage: "Dépannage (test A/B, version B)",
+  ressort: "Ressorts (annonces)",
+  ouvre_porte: "Ouvre-porte (annonces)",
 } as const;
 
 function escapeHtml(s: string): string {

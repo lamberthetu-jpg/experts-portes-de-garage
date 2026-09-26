@@ -37,6 +37,7 @@ const jsonLd = pageSchema({
 });
 
 const CONTENU: ContenuLanding = {
+  source: "ressort",
   barre: "Ressort de porte de garage cassé · Granby",
   h1: "Ressort de porte de garage cassé? Réparé le jour même",
   intro:

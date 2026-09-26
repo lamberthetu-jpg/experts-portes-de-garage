@@ -14,8 +14,8 @@ export const LANDING = {
   /** Heures où tu réponds VRAIMENT en personne. null = la promesse est masquée. */
   heuresReponse: null as string | null, // ex. "7 h à 20 h, 7 jours sur 7"
 
-  /** Rayon réel de déplacement, en km. Le même que la pub Google (vérifié le 23 sept. 2026). */
-  rayonKm: 35,
+  /** Rayon réel de déplacement, en km. Le même que la pub Google (45 km, vérifié dans Google Ads le 25 sept. 2026). */
+  rayonKm: 45,
 
   /** Numéro d'entreprise du Québec. */
   neq: "2281545188",

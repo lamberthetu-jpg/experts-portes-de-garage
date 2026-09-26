@@ -1,5 +1,5 @@
 import Image from "next/image";
-import RappelForm from "@/components/RappelForm";
+import RappelForm, { type SourceRappel } from "@/components/RappelForm";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/config";
 import { LANDING, prix } from "@/lib/landing-granby";
 
@@ -20,6 +20,8 @@ export type Carte = { titre: string; texte: string };
 export type IconeReassurance = "horloge" | "garantie" | "outil" | "diagnostic";
 
 export type ContenuLanding = {
+  /** Page d'origine, reprise dans le courriel de rappel et les conversions. */
+  source: SourceRappel;
   /** Texte de la barre rouge collee en haut. */
   barre: string;
   h1: string;
@@ -57,7 +59,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
       <div className="sticky top-0 z-40 bg-brand text-white">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-2 text-sm">
           <span className="truncate font-medium">{c.barre}</span>
-          <a href={PHONE_HREF} className="shrink-0 whitespace-nowrap font-bold tabular-nums hover:underline">
+          <a href={PHONE_HREF} data-cta="entete" className="shrink-0 whitespace-nowrap font-bold tabular-nums hover:underline">
             {PHONE_DISPLAY}
           </a>
         </div>
@@ -104,6 +106,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
             <div className="mt-9 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-7">
               <a
                 href={PHONE_HREF}
+                data-cta="hero"
                 className="group inline-flex w-full shrink-0 items-center justify-center gap-3 rounded-xl bg-brand py-3.5 pl-3.5 pr-6 text-white shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)] transition-colors hover:bg-brand-dark active:scale-[0.99] sm:w-auto"
               >
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/15">
@@ -119,7 +122,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
                 className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-[15px] font-medium text-white/80 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-white sm:justify-start"
               >
                 <CalendarIcon className="h-4 w-4" />
-                Ça peut attendre : prendre rendez-vous
+                Ça peut attendre : je vous rappelle
               </a>
             </div>
 
@@ -157,6 +160,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
             <a
               key={b.titre}
               href={PHONE_HREF}
+              data-cta="probleme"
               className="group rounded-2xl border border-gray-200 bg-white p-5 transition-[border-color,box-shadow] hover:border-gray-300 hover:shadow-[0_8px_24px_-16px_rgba(0,0,0,0.35)]"
             >
               <h3 className="font-bold text-gray-900 group-hover:text-brand">{b.titre}</h3>
@@ -255,7 +259,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
               <LignePrix
                 titre="Sortie d’urgence"
                 montant={prix(LANDING.prixUrgence)}
-                detail="Quand vous ne pouvez pas attendre et que je laisse tout tomber pour me rendre chez vous tout de suite, en dehors de ma route de la journée. Si votre porte peut attendre à demain, vous payez le taux horaire normal."
+                detail="Quand vous ne pouvez pas attendre et que je laisse tout tomber pour me rendre chez vous tout de suite, en dehors de ma route de la journée. Comprend la première heure sur place, ensuite 145 $/h. Si votre porte peut attendre à demain, vous payez le taux horaire normal."
               />
             )}
           </dl>
@@ -329,7 +333,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
           <p className="mt-3 leading-relaxed text-gray-700">{LANDING.villes.join(", ")}.</p>
           <p className="mt-3 text-gray-600">
             Pas certain si vous êtes dans la zone?{" "}
-            <a href={PHONE_HREF} className="font-semibold text-brand underline underline-offset-2">
+            <a href={PHONE_HREF} data-cta="zone" className="font-semibold text-brand underline underline-offset-2">
               Appelez, je vais vous le dire tout de suite.
             </a>
           </p>
@@ -399,7 +403,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
           <p className="mt-2 mb-6 text-gray-600">
             Je vous rappelle. Trois champs, ça prend 20 secondes.
           </p>
-          <RappelForm />
+          <RappelForm source={c.source} />
         </div>
       </section>
 
@@ -415,6 +419,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
       {/* ── Barre d’appel collée en bas (mobile) ───────────────────────── */}
       <a
         href={PHONE_HREF}
+        data-cta="barre_mobile"
         className="fixed inset-x-0 bottom-0 z-50 flex items-center justify-center gap-3 bg-brand py-4 font-heading text-lg uppercase tracking-wide text-white shadow-[0_-4px_20px_rgba(0,0,0,0.25)] md:hidden"
       >
         <PhoneIcon className="h-5 w-5" />

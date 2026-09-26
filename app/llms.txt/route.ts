@@ -59,7 +59,7 @@ function sectionPrix(): string {
 export function GET() {
   const corps = `# ${BUSINESS_NAME}
 
-> Réparation de portes de garage résidentielles à Granby et dans un rayon de 35 km, au Québec. Service le jour même, sept jours sur sept, urgences incluses.
+> Réparation de portes de garage résidentielles à Granby et dans un rayon de 45 km, au Québec. Service le jour même, sept jours sur sept, urgences incluses.
 
 ## L'essentiel
 
@@ -79,7 +79,7 @@ Le prix est donné avant de commencer les travaux. Aucune taxe n'est facturée :
 
 ## Zone desservie
 
-Granby et un rayon d'environ 35 km, ce qui comprend :
+Granby et un rayon d'environ 45 km, ce qui comprend :
 ${LANDING.villes.map((v) => `- ${v}`).join("\n")}
 
 ## Services

@@ -179,8 +179,8 @@ export default function WeatherSealBookingModal({ isOpen, onClose }: WeatherSeal
 
       if (place.location) {
         const dist = haversineKm(place.location.latitude, place.location.longitude, 45.3972, -72.7330);
-        if (dist > 60) {
-          setErrors(e => ({ ...e, adresse: `Cette adresse est à ${Math.round(dist)} km de Granby — hors de notre zone de service (60 km max). Appelez-nous au 438-808-9604.` }));
+        if (dist > 45) {
+          setErrors(e => ({ ...e, adresse: `Cette adresse est à ${Math.round(dist)} km de Granby — hors de notre zone de service (45 km max). Appelez-nous au 438-808-9604.` }));
         }
       }
     } catch { /* keep typed value */ }

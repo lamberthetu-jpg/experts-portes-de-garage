@@ -52,7 +52,7 @@ export const BUSINESS_ID = `${SITE_URL}/#entreprise`;
 const GEO = { latitude: 45.4001, longitude: -72.7333 };
 
 /** Le rayon réellement desservi, en mètres. Le même que la pub Google. */
-const RAYON_METRES = 35000;
+const RAYON_METRES = 45000;
 
 const SERVICES = [
   {
@@ -108,7 +108,7 @@ export const businessSchema = {
   name: BUSINESS_NAME,
   legalName: BUSINESS_NAME,
   description:
-    "Réparation de portes de garage résidentielles à Granby et dans un rayon de 35 km. Ressorts, câbles, roulettes, ouvre-portes et coupe-froid. Service le jour même, sept jours sur sept. Un seul homme se déplace, Lambert Hétu, du premier appel jusqu'à la fin des travaux.",
+    "Réparation de portes de garage résidentielles à Granby et dans un rayon de 45 km. Ressorts, câbles, roulettes, ouvre-portes et coupe-froid. Service le jour même, sept jours sur sept. Un seul homme se déplace, Lambert Hétu, du premier appel jusqu'à la fin des travaux.",
   url: SITE_URL,
   telephone: PHONE_DISPLAY,
   email: EMAIL,
@@ -140,7 +140,7 @@ export const businessSchema = {
     latitude: GEO.latitude,
     longitude: GEO.longitude,
   },
-  /** La zone réelle : un cercle de 35 km autour de Granby. */
+  /** La zone réelle : un cercle de 45 km autour de Granby. */
   serviceArea: {
     "@type": "GeoCircle",
     geoMidpoint: {

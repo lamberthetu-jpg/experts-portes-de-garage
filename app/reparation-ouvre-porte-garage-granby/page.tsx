@@ -37,6 +37,7 @@ const jsonLd = pageSchema({
 });
 
 const CONTENU: ContenuLanding = {
+  source: "ouvre_porte",
   barre: "Réparation d’ouvre-porte de garage · Granby",
   h1: "Ouvre-porte de garage en panne? Réparé à Granby et environs",
   intro:

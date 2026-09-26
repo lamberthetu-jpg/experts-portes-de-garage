@@ -285,7 +285,7 @@ export default function UrgentPageContent() {
                 <p className="font-bold text-[#1a1a1a]">Sortie d’urgence</p>
                 <p className="text-gray-500 text-sm leading-relaxed mt-1">
                   Quand vous ne pouvez pas attendre et que je laisse tout tomber pour me rendre chez vous tout de suite,
-                  en dehors de ma route de la journée. Si votre porte peut attendre à demain, vous payez le taux horaire normal.
+                  en dehors de ma route de la journée. Comprend la première heure sur place, ensuite 145 $/h. Si votre porte peut attendre à demain, vous payez le taux horaire normal.
                 </p>
               </div>
               <p className="font-heading text-2xl text-brand whitespace-nowrap">350 $</p>

@@ -6,7 +6,9 @@ import { gtagConversion } from "@/lib/gtag";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/config";
 
 /** `source` = page d'origine, reprise dans le courriel reçu et dans les stats (défaut : granby). */
-export default function RappelForm({ source = "granby" }: { source?: "granby" | "depannage" }) {
+export type SourceRappel = "granby" | "depannage" | "ressort" | "ouvre_porte";
+
+export default function RappelForm({ source = "granby" }: { source?: SourceRappel }) {
   const [nom, setNom] = useState("");
   const [telephone, setTelephone] = useState("");
   const [probleme, setProbleme] = useState("");

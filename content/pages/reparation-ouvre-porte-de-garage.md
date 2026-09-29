@@ -9,7 +9,7 @@ link: "https://expertsportesdegarage.ca/reparation-ouvre-porte-de-garage/"
 
 # Entreprise de confiance pour Installation, entretien et réparation d’ouvre-portes de garage
 
-Profitez d’un **ouvre-porte de garage** fiable, silencieux et durable grâce à nos services professionnels d’**installation**, de **réparation** et d’**entretien d’ouvre-portes de garage**. Que vous souhaitiez faire installer un nouveau système ou remettre à neuf votre moteur existant, [Experts Portes de Garage](https://expertsportesdegarage.ca/) vous offre une solution rapide et efficace. Je m’occupe de tout, du **moteur de porte de garage** à la programmation intelligente, pour garantir un fonctionnement fluide et sécuritaire. Nous desservons fièrement Granby, Sherbrooke et Montréal avec un service de qualité supérieure, adapté à tous les types d’ouvre-portes résidentiels et commerciaux.
+Profitez d’un **ouvre-porte de garage** fiable, silencieux et durable grâce à nos services professionnels d’**installation**, de **réparation** et d’**entretien d’ouvre-portes de garage**. Que vous souhaitiez faire installer un nouveau système ou remettre à neuf votre moteur existant, [Experts Portes de Garage](https://expertsportesdegarage.ca/) vous offre une solution rapide et efficace. Je m’occupe de tout, du **moteur de porte de garage** à la programmation intelligente, pour garantir un fonctionnement fluide et sécuritaire. Nous desservons fièrement Granby, Bromont, Cowansville, Waterloo et les environs avec un service de qualité supérieure, adapté à tous les types d’ouvre-portes résidentiels et commerciaux.
 
 Planifier maintenant [438-808-9604](tel:4388089604)
 
@@ -35,7 +35,7 @@ Des **soumissions transparentes** et des **conseils professionnels**
 
 ## Services experts d’ouvre-portes de garage
 
-Ton garage, c’est bien plus qu’un simple espace de rangement — c’est une porte d’entrée vers ta maison. Pour qu’il fonctionne sans accroc, il te faut un ouvre-porte de garage fiable, silencieux et sécuritaire. Que ce soit pour une réparation d’ouvre-porte de garage ou l’installation d’un nouveau moteur, les techniciens d’Experts Portes de Garage s’en occupent rapidement et sans tracas. Nous travaillons avec tous les types de moteurs de porte de garage — à chaîne, à courroie ou à vis sans fin — et offrons aussi un service d’entretien préventif pour prolonger la durée de vie de ton système. De Granby à Sherbrooke, jusqu’à Montréal, on redonne à ton ouvre-porte sa fluidité et sa fiabilité, jour après jour.
+Ton garage, c’est bien plus qu’un simple espace de rangement — c’est une porte d’entrée vers ta maison. Pour qu’il fonctionne sans accroc, il te faut un ouvre-porte de garage fiable, silencieux et sécuritaire. Que ce soit pour une réparation d’ouvre-porte de garage ou l’installation d’un nouveau moteur, les techniciens d’Experts Portes de Garage s’en occupent rapidement et sans tracas. Nous travaillons avec tous les types de moteurs de porte de garage — à chaîne, à courroie ou à vis sans fin — et offrons aussi un service d’entretien préventif pour prolonger la durée de vie de ton système. À Granby, Bromont, Cowansville, Waterloo et dans un rayon de 45 km, on redonne à ton ouvre-porte sa fluidité et sa fiabilité, jour après jour.
 
 ## Dépliez les sections ci-dessous pour en savoir plus sur nos services d’ouvre-portes de garage.
 

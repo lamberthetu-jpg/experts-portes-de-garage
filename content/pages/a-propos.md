@@ -19,7 +19,7 @@ On est une entreprise locale, fière de servir les résidents de la région avec
 
 Fondée par des passionnés du travail bien fait, **Experts Portes de Garage** est une entreprise locale spécialisée dans la réparation, l’installation et l’entretien de portes de garage résidentielles et commerciales.
 
-Basés en Estrie, nous servons fièrement les régions de **Granby, Sherbrooke, Bromont et la Montérégie**.
+Basés en Estrie, nous servons fièrement **Granby, Bromont, Cowansville, Waterloo et les environs, dans un rayon de 45 km**.
 
 Je m’engage à offrir un service rapide, sécuritaire et professionnel, avec une approche humaine et transparente.
 

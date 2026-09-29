@@ -70,4 +70,4 @@ R : Oui, nous pouvons intervenir rapidement si votre garage est exposé au froid
 R : Notre inspection inclut l'évaluation du coupe-froid. Si un remplacement est nécessaire, nous vous fournissons un devis sur place avant de procéder.
 
 **Q : Desservez-vous toute la région de Granby et l'Estrie?**
-R : Oui, nous intervenons dans toute la région de Granby, Bromont, Waterloo, Cowansville, Magog, Sherbrooke et les environs en Estrie et Montérégie.
+R : Oui, nous intervenons dans toute la région de Granby, Bromont, Waterloo, Cowansville, Saint-Hyacinthe et les environs, dans un rayon de 45 km.

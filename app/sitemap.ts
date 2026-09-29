@@ -5,20 +5,14 @@ const BASE_URL = "https://www.expertsportesdegarage.ca";
 
 const CITY_SLUGS = [
   "portes-de-garage-granby",
-  "portes-de-garage-sherbrooke",
   "portes-de-garage-saint-hyacinthe",
-  "portes-de-garage-longueuil",
-  "portes-de-garage-brossard",
   "portes-de-garage-magog",
   "portes-de-garage-saint-jean-sur-richelieu",
   "portes-de-garage-bromont",
   "portes-de-garage-waterloo",
   "portes-de-garage-cowansville",
   "portes-de-garage-farnham",
-  "portes-de-garage-chateauguay",
   "portes-de-garage-beloeil",
-  "portes-de-garage-sorel-tracy",
-  "portes-de-garage-sainte-julie",
 ];
 
 const SERVICE_SLUGS = [

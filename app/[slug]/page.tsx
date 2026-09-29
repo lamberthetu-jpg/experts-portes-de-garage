@@ -24,34 +24,22 @@ const PAGE_IMAGES: Record<string, string> = {
 
 const CITY_IMAGES: Record<string, string> = {
   "portes-de-garage-granby": "/images/villes/ville-granby.webp",
-  "portes-de-garage-sherbrooke": "/images/villes/ville-sherbrooke.webp",
   "portes-de-garage-saint-hyacinthe": "/images/villes/ville-saint-hyacinthe.webp",
-  "portes-de-garage-longueuil": "/images/villes/ville-longueuil.webp",
-  "portes-de-garage-brossard": "/images/villes/ville-brossard.webp",
   "portes-de-garage-magog": "/images/villes/ville-magog.webp",
   "portes-de-garage-saint-jean-sur-richelieu": "/images/villes/ville-saint-jean-sur-richelieu.webp",
   "portes-de-garage-bromont": "/images/villes/ville-bromont.webp",
   "portes-de-garage-waterloo": "/images/villes/ville-waterloo.webp",
-  "portes-de-garage-chateauguay": "/images/villes/ville-chateauguay.webp",
   "portes-de-garage-beloeil": "/images/villes/ville-beloeil.webp",
-  "portes-de-garage-sorel-tracy": "/images/villes/ville-sorel-tracy.webp",
-  "portes-de-garage-sainte-julie": "/images/villes/ville-sainte-julie.webp",
 };
 
 const CITY_LINKS = [
   { label: "Granby", slug: "portes-de-garage-granby" },
-  { label: "Sherbrooke", slug: "portes-de-garage-sherbrooke" },
   { label: "Saint-Hyacinthe", slug: "portes-de-garage-saint-hyacinthe" },
-  { label: "Longueuil", slug: "portes-de-garage-longueuil" },
-  { label: "Brossard", slug: "portes-de-garage-brossard" },
   { label: "Magog", slug: "portes-de-garage-magog" },
   { label: "Saint-Jean-sur-Richelieu", slug: "portes-de-garage-saint-jean-sur-richelieu" },
   { label: "Bromont", slug: "portes-de-garage-bromont" },
   { label: "Waterloo", slug: "portes-de-garage-waterloo" },
-  { label: "Châteauguay", slug: "portes-de-garage-chateauguay" },
   { label: "Beloeil", slug: "portes-de-garage-beloeil" },
-  { label: "Sorel-Tracy", slug: "portes-de-garage-sorel-tracy" },
-  { label: "Sainte-Julie", slug: "portes-de-garage-sainte-julie" },
 ];
 
 export async function generateStaticParams() {

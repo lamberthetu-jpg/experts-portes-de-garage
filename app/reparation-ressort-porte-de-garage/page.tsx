@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
 import LandingService, { type ContenuLanding } from "@/components/LandingService";
+import {
+  IllCableSorti,
+  IllExtension,
+  IllLourde,
+  IllPenche,
+  IllRoulettes,
+  IllTorsion,
+} from "@/components/illustrations/PannesRessort";
 import { PHONE_DISPLAY } from "@/lib/config";
 import { pageSchema, jsonLdString } from "@/lib/schema";
 
@@ -52,12 +60,12 @@ const CONTENU: ContenuLanding = {
   ],
   problemesTitre: "Ressorts et câbles : ce que je répare",
   problemes: [
-    { titre: "Ressort de torsion cassé", texte: "Le ressort au-dessus de la porte s’est séparé en deux. La porte ne lève plus ou pèse une tonne." },
-    { titre: "Ressorts sur les côtés", texte: "Les ressorts d’extension, le long des rails. Un seul qui lâche et la porte monte croche." },
-    { titre: "Câble sorti ou brisé", texte: "Le câble pend à côté de la porte ou s’est effiloché. La porte penche d’un côté." },
-    { titre: "Porte qui penche ou reste croche", texte: "Souvent un câble ou un ressort qui a lâché d’un seul côté." },
-    { titre: "Porte très lourde à la main", texte: "Le ressort a perdu sa tension. Le moteur force et va finir par lâcher lui aussi." },
-    { titre: "Roulettes usées ou sorties du rail", texte: "Elles accompagnent souvent un ressort fatigué. Je les vérifie en même temps." },
+    { titre: "Ressort de torsion cassé", texte: "Le ressort au-dessus de la porte s’est séparé en deux. La porte ne lève plus ou pèse une tonne." , Ill: IllTorsion },
+    { titre: "Ressorts sur les côtés", texte: "Les ressorts d’extension, le long des rails. Un seul qui lâche et la porte monte croche." , Ill: IllExtension },
+    { titre: "Câble sorti ou brisé", texte: "Le câble pend à côté de la porte ou s’est effiloché. La porte penche d’un côté." , Ill: IllCableSorti },
+    { titre: "Porte qui penche ou reste croche", texte: "Souvent un câble ou un ressort qui a lâché d’un seul côté." , Ill: IllPenche },
+    { titre: "Porte très lourde à la main", texte: "Le ressort a perdu sa tension. Le moteur force et va finir par lâcher lui aussi." , Ill: IllLourde },
+    { titre: "Roulettes usées ou sorties du rail", texte: "Elles accompagnent souvent un ressort fatigué. Je les vérifie en même temps." , Ill: IllRoulettes },
   ],
   securite:
     "un ressort de torsion est sous très forte tension. Si le vôtre est cassé, ne forcez pas " +

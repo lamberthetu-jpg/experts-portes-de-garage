@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PHONE_DISPLAY, PHONE_HREF, EMAIL, OWNER_NAME } from "@/lib/config";
 import RappelForm from "@/components/RappelForm";
 import FaqAccordion from "@/components/FaqAccordion";
+import AvisGoogle from "@/components/AvisGoogle";
 
 /**
  * Test A/B — version B de la page d'urgence. Hypothèse : une page plus courte, à la
@@ -132,6 +133,9 @@ export default function DepannagePage() {
           </ul>
         </div>
       </section>
+
+      {/* ── Avis Google (même bloc que la version A) ── */}
+      <AvisGoogle />
 
       {/* ── 5. FAQ ── */}
       <section className="bg-[#f5f5f5] py-10">

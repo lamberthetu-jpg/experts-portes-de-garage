@@ -18,6 +18,7 @@ const CONTENU: ContenuLanding = {
     { icone: "outil", titre: "Pièces dans le camion", texte: "Ressorts, câbles, roulettes." },
   ],
   problemesTitre: "Les problèmes que je règle",
+  problemesFondBlanc: true,
   problemes: [
     { titre: "Ressort cassé", texte: "Un gros « bang » et la porte ne lève plus. La réparation la plus fréquente." , Ill: IllTorsion },
     { titre: "Câble sorti ou brisé", texte: "La porte penche d’un côté ou reste croche." , Ill: IllCableSorti },

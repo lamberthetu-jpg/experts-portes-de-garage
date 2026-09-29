@@ -35,6 +35,8 @@ export type ContenuLanding = {
   problemesTitre: string;
   /** Cartes cliquables qui appellent directement. */
   problemes: Carte[];
+  /** Cartes illustrées sur fond blanc plutôt que sombre. */
+  problemesFondBlanc?: boolean;
   /** Encadre de securite sous les problemes. Absent = masque. */
   securite?: string;
   /** Deuxieme bloc (signes d'usure, reparer ou remplacer...). Absent = masque. */
@@ -157,6 +159,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
       {c.problemes.every((p) => p.Ill) ? (
         <CartesIllustrees
           titre={c.problemesTitre}
+          fondBlanc={c.problemesFondBlanc}
           cartes={c.problemes.map((p) => ({ titre: p.titre, texte: p.texte, Ill: p.Ill! }))}
           note={c.securite ? { etiquette: "Sécurité :", texte: c.securite } : undefined}
         />

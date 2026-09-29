@@ -117,6 +117,7 @@ export default function CartesIllustrees({
   cartes,
   note,
   nuit = false,
+  fondBlanc = false,
 }: {
   titre: string;
   sousTitre?: string;
@@ -125,24 +126,28 @@ export default function CartesIllustrees({
   note?: { etiquette: string; texte: string };
   /** Ambiance de nuit : ciel étoilé, lune et reflet lunaire sur les cartes. */
   nuit?: boolean;
+  /** Section sur fond blanc (les cartes restent sombres). */
+  fondBlanc?: boolean;
 }) {
   return (
     <section
       className={
         nuit
           ? "relative overflow-hidden bg-[linear-gradient(180deg,#0a0f1f_0%,#0d1020_45%,#120e0c_100%)]"
-          : "bg-[#120e0c]"
+          : fondBlanc
+            ? "bg-white"
+            : "bg-[#120e0c]"
       }
     >
       {nuit && <CielDeNuit />}
       <div className="relative mx-auto max-w-6xl px-5 py-16 sm:py-20">
-        <h2 className="font-heading text-3xl uppercase text-white sm:text-4xl">{titre}</h2>
-        <p className="mt-2 text-white/55">{sousTitre}</p>
+        <h2 className={`font-heading text-3xl uppercase sm:text-4xl ${fondBlanc ? "text-gray-900" : "text-white"}`}>{titre}</h2>
+        <p className={`mt-2 ${fondBlanc ? "text-gray-600" : "text-white/55"}`}>{sousTitre}</p>
 
         {/* Cellulaire : les cartes glissent à l'horizontale (une par écran, la
             suivante dépasse un peu pour montrer qu'il y en a d'autres).
             Tablette et ordinateur : grille. */}
-        <p className="mt-4 text-sm text-white/40 sm:hidden" aria-hidden="true">Glissez pour voir les autres →</p>
+        <p className={`mt-4 text-sm sm:hidden ${fondBlanc ? "text-gray-400" : "text-white/40"}`} aria-hidden="true">Glissez pour voir les autres →</p>
         <ul className="-mx-5 mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-9 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden">
           {cartes.map(({ titre: t, texte, Ill }) => (
             <li key={t} className="w-[85%] shrink-0 snap-start sm:w-auto">
@@ -181,8 +186,12 @@ export default function CartesIllustrees({
         </ul>
 
         {note && (
-          <p className="mt-10 rounded-2xl border-l-4 border-brand bg-white/[0.04] p-4 text-sm leading-relaxed text-white/75">
-            <strong className="text-white">{note.etiquette}</strong> {note.texte}
+          <p
+            className={`mt-10 rounded-2xl border-l-4 border-brand p-4 text-sm leading-relaxed ${
+              fondBlanc ? "bg-brand/5 text-gray-800" : "bg-white/[0.04] text-white/75"
+            }`}
+          >
+            <strong className={fondBlanc ? "text-gray-900" : "text-white"}>{note.etiquette}</strong> {note.texte}
           </p>
         )}
       </div>

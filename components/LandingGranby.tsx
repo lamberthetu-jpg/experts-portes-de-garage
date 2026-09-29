@@ -1,4 +1,7 @@
 import LandingService, { type ContenuLanding } from "@/components/LandingService";
+import { IllBruyante, IllHorsRail } from "@/components/illustrations/PannesGranby";
+import { IllCapteurs, IllRienNeSePasse } from "@/components/illustrations/PannesOuvrePorte";
+import { IllCableSorti, IllTorsion } from "@/components/illustrations/PannesRessort";
 
 /** Contenu de /reparation-porte-garage-granby : la page generale. */
 const CONTENU: ContenuLanding = {
@@ -16,12 +19,12 @@ const CONTENU: ContenuLanding = {
   ],
   problemesTitre: "Les problèmes que je règle",
   problemes: [
-    { titre: "Ressort cassé", texte: "Un gros « bang » et la porte ne lève plus. La réparation la plus fréquente." },
-    { titre: "Câble sorti ou brisé", texte: "La porte penche d’un côté ou reste croche." },
-    { titre: "Porte débarrée du rail", texte: "Elle est sortie de sa track et refuse de bouger." },
-    { titre: "Ouvre-porte qui ne répond plus", texte: "Moteur, engrenage, télécommande ou capteurs." },
-    { titre: "Roulettes et charnières usées", texte: "Porte bruyante, qui force ou qui accroche." },
-    { titre: "Porte qui ne ferme pas complètement", texte: "Souvent les yeux électriques ou l’ajustement." },
+    { titre: "Ressort cassé", texte: "Un gros « bang » et la porte ne lève plus. La réparation la plus fréquente." , Ill: IllTorsion },
+    { titre: "Câble sorti ou brisé", texte: "La porte penche d’un côté ou reste croche." , Ill: IllCableSorti },
+    { titre: "Porte débarrée du rail", texte: "Elle est sortie de sa track et refuse de bouger." , Ill: IllHorsRail },
+    { titre: "Ouvre-porte qui ne répond plus", texte: "Moteur, engrenage, télécommande ou capteurs." , Ill: IllRienNeSePasse },
+    { titre: "Roulettes et charnières usées", texte: "Porte bruyante, qui force ou qui accroche." , Ill: IllBruyante },
+    { titre: "Porte qui ne ferme pas complètement", texte: "Souvent les yeux électriques ou l’ajustement." , Ill: IllCapteurs },
   ],
   securite:
     "un ressort de torsion est sous très forte tension. Si le vôtre est cassé, ne forcez pas " +

@@ -8,6 +8,14 @@ import {
   IllRoulettes,
   IllTorsion,
 } from "@/components/illustrations/PannesRessort";
+import {
+  IllCableEffiloche,
+  IllEspaceRessort,
+  IllMiHauteur,
+  IllMonteCroche,
+  IllMoteurGrogne,
+  IllPorteLourde,
+} from "@/components/illustrations/SignesUsure";
 import { PHONE_DISPLAY } from "@/lib/config";
 import { pageSchema, jsonLdString } from "@/lib/schema";
 
@@ -77,12 +85,12 @@ const CONTENU: ContenuLanding = {
       "Un ressort ne casse pas du jour au lendemain. Ces signes-là veulent dire qu’il est fatigué. " +
       "Le changer avant qu’il casse, c’est une visite planifiée à votre horaire au lieu d’une urgence.",
     items: [
-      { titre: "La porte est lourde", texte: "Débrayée, elle devrait se lever facilement à la main. Si elle pèse, les ressorts n’ont plus leur tension." },
-      { titre: "Elle ne reste pas à mi-hauteur", texte: "Levée à moitié à la main, une porte bien équilibrée reste en place. Si elle redescend, c’est un signe." },
-      { titre: "Un espace dans le ressort", texte: "Un trou de quelques pouces entre deux spires du ressort du haut : il est cassé." },
-      { titre: "Le moteur force", texte: "L’ouvre-porte grogne, ralentit ou arrête en montant. Souvent, c’est le ressort et pas le moteur." },
-      { titre: "Câble effiloché", texte: "Des brins qui dépassent près du bas de la porte. Un câble qui casse peut faire tomber la porte croche." },
-      { titre: "La porte monte croche", texte: "Un côté lève avant l’autre. Un ressort ou un câble est plus faible d’un côté." },
+      { titre: "La porte est lourde", texte: "Débrayée, elle devrait se lever facilement à la main. Si elle pèse, les ressorts n’ont plus leur tension." , Ill: IllPorteLourde },
+      { titre: "Elle ne reste pas à mi-hauteur", texte: "Levée à moitié à la main, une porte bien équilibrée reste en place. Si elle redescend, c’est un signe." , Ill: IllMiHauteur },
+      { titre: "Un espace dans le ressort", texte: "Un trou de quelques pouces entre deux spires du ressort du haut : il est cassé." , Ill: IllEspaceRessort },
+      { titre: "Le moteur force", texte: "L’ouvre-porte grogne, ralentit ou arrête en montant. Souvent, c’est le ressort et pas le moteur." , Ill: IllMoteurGrogne },
+      { titre: "Câble effiloché", texte: "Des brins qui dépassent près du bas de la porte. Un câble qui casse peut faire tomber la porte croche." , Ill: IllCableEffiloche },
+      { titre: "La porte monte croche", texte: "Un côté lève avant l’autre. Un ressort ou un câble est plus faible d’un côté." , Ill: IllMonteCroche },
     ],
     miseAuPoint: true,
   },

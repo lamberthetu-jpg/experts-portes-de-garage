@@ -207,14 +207,41 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
             {c.voieB.intro}
           </p>
 
-          <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {c.voieB.items.map((t) => (
-              <div key={t.titre} className="rounded-2xl border border-gray-200 bg-white p-5">
-                <h3 className="font-bold text-gray-900">{t.titre}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-gray-600">{t.texte}</p>
+          {c.voieB.items.every((t) => t.Ill) ? (
+            /* Ordinateur : grille de 3. Cellulaire : les cartes glissent à
+               l'horizontale, une par écran (comme les cartes du haut). */
+            <>
+              <p className="mt-4 text-sm text-gray-400 sm:hidden" aria-hidden="true">Glissez pour voir les autres →</p>
+              <div className="-mx-5 mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-7 sm:grid sm:grid-cols-2 sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden">
+                {c.voieB.items.map((t) => {
+                  const Ill = t.Ill!;
+                  return (
+                    <div
+                      key={t.titre}
+                      className="w-[85%] shrink-0 snap-start overflow-hidden rounded-2xl border border-gray-200 bg-white sm:w-auto"
+                    >
+                      <div className="h-36 border-b border-gray-100 bg-[#faf8f5] px-4 py-3">
+                        <Ill />
+                      </div>
+                      <div className="p-5">
+                        <h3 className="font-bold text-gray-900">{t.titre}</h3>
+                        <p className="mt-1.5 text-sm leading-relaxed text-gray-600">{t.texte}</p>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-            ))}
-          </div>
+            </>
+          ) : (
+            <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {c.voieB.items.map((t) => (
+                <div key={t.titre} className="rounded-2xl border border-gray-200 bg-white p-5">
+                  <h3 className="font-bold text-gray-900">{t.titre}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-gray-600">{t.texte}</p>
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* Encadré entretien : le produit d’appel de la voie B */}
           {c.voieB.miseAuPoint && (

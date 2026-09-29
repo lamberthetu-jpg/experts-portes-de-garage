@@ -314,3 +314,16 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
 @media (prefers-reduced-motion: reduce) {
   .avis-defile { animation: none; }
 }
+
+/* Étoiles de la section de nuit (components/CartesIllustrees.tsx). */
+@keyframes etoile-scintille {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.9; }
+}
+.etoile {
+  opacity: 0.6;
+  animation: etoile-scintille 3.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .etoile { animation: none; }
+}

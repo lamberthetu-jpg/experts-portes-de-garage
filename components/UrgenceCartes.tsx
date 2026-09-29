@@ -130,6 +130,7 @@ const CARTES = [
 export default function UrgenceCartes() {
   return (
     <CartesIllustrees
+      nuit
       titre="Je règle ça cette nuit"
       sousTitre="Touchez votre urgence pour m’appeler."
       cartes={CARTES.map((c) => ({ titre: c.probleme, texte: c.solution, Ill: c.Ill }))}

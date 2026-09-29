@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import PlanifierButton from "@/components/PlanifierButton";
 import MotorSection from "@/components/MotorSection";
@@ -178,7 +177,18 @@ export default function OuvrePortePageContent() {
       {/* ── 1. HERO ── */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/images/maison_garage_v1.webp" alt="" fill preload fetchPriority="high" sizes="100vw" className="object-cover" />
+          {/* L'auto arrive, la porte s'ouvre, l'auto entre, la porte se referme.
+              Pas de `loop` : la vidéo joue une fois et reste sur la porte fermée. */}
+          <video
+            src="/videos/ouvre-porte-garage.mp4"
+            poster="/videos/ouvre-porte-garage-debut.jpg"
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            className="h-full w-full object-cover"
+          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/92 via-[#1a1a1a]/75 to-[#1a1a1a]/30" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-24 md:py-32">

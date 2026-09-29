@@ -126,7 +126,7 @@ export default function CartesIllustrees({
   note?: { etiquette: string; texte: string };
   /** Ambiance de nuit : ciel étoilé, lune et reflet lunaire sur les cartes. */
   nuit?: boolean;
-  /** Section sur fond blanc (les cartes restent sombres). */
+  /** Section sur fond blanc : cartes transparentes à bordure rouge de 3 px, texte foncé. */
   fondBlanc?: boolean;
 }) {
   return (
@@ -157,7 +157,9 @@ export default function CartesIllustrees({
                 className={`group relative flex h-[380px] flex-col overflow-hidden rounded-[28px] border transition-colors ${
                   nuit
                     ? "border-[#c8d6ff]/[0.10] bg-[#16151c]/90 shadow-[0_20px_50px_-30px_rgba(120,150,255,0.35)] backdrop-blur-sm hover:border-[#c8d6ff]/25"
-                    : "border-white/[0.06] bg-[#1b1613] hover:border-white/15"
+                    : fondBlanc
+                      ? "border-[3px] border-brand bg-transparent hover:border-brand-dark"
+                      : "border-white/[0.06] bg-[#1b1613] hover:border-white/15"
                 }`}
               >
                 {nuit && (
@@ -171,10 +173,10 @@ export default function CartesIllustrees({
                 </div>
                 <div className="relative flex items-end justify-between gap-4 px-6 pb-6">
                   <div>
-                    <p className="text-2xl font-semibold leading-tight tracking-tight text-white">{t}</p>
-                    <p className="mt-2 text-sm leading-snug text-white/60">{texte}</p>
+                    <p className={`text-2xl font-semibold leading-tight tracking-tight ${fondBlanc ? "text-gray-900" : "text-white"}`}>{t}</p>
+                    <p className={`mt-2 text-sm leading-snug ${fondBlanc ? "text-gray-600" : "text-white/60"}`}>{texte}</p>
                   </div>
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/15 text-white transition-colors group-hover:bg-brand">
+                  <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white transition-colors ${fondBlanc ? "bg-brand group-hover:bg-brand-dark" : "bg-white/15 group-hover:bg-brand"}`}>
                     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
                       <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.18 21 3 13.82 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" />
                     </svg>

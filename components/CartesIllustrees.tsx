@@ -94,9 +94,13 @@ export default function CartesIllustrees({
         <h2 className="font-heading text-3xl uppercase text-white sm:text-4xl">{titre}</h2>
         <p className="mt-2 text-white/55">{sousTitre}</p>
 
-        <ul className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Cellulaire : les cartes glissent à l'horizontale (une par écran, la
+            suivante dépasse un peu pour montrer qu'il y en a d'autres).
+            Tablette et ordinateur : grille. */}
+        <p className="mt-4 text-sm text-white/40 sm:hidden" aria-hidden="true">Glissez pour voir les autres →</p>
+        <ul className="-mx-5 mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-9 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3 [&::-webkit-scrollbar]:hidden">
           {cartes.map(({ titre: t, texte, Ill }) => (
-            <li key={t}>
+            <li key={t} className="w-[85%] shrink-0 snap-start sm:w-auto">
               <a
                 href={PHONE_HREF}
                 data-cta="probleme"

@@ -49,7 +49,7 @@ const SERVICES = [
   { id: "coupe-froid", label: "Remplacement de coupe-froid", desc: "Joint bas, latéraux, haut de porte", icon: (
     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 8v4l3 3"/></svg>
   )},
-  { id: "inspection", label: "Inspection / Entretien", desc: "Inspection complète dès 39,95$", icon: (
+  { id: "inspection", label: "Inspection / Entretien", desc: "Inspection complète de la porte", icon: (
     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
   )},
   { id: "autre", label: "Autre / Je ne sais pas", desc: "Un technicien vous guidera", icon: (

@@ -84,6 +84,30 @@ export const LANDING = {
         "Très bon service et service rapide et professionnel, travail très bien. " +
         "Personne compétente et consciencieuse. Je vous le recommande sans hésiter",
     },
+    {
+      prenom: "Martin G.",
+      ville: "",
+      etoiles: 5,
+      texte: "Excellent service, très sympathique",
+    },
+    {
+      prenom: "Anne",
+      ville: "",
+      etoiles: 5,
+      texte: "Efficace, professionnel, aimable",
+    },
+    {
+      prenom: "Marielle B.",
+      ville: "",
+      etoiles: 5,
+      texte: "Très poli et connaît son produit.",
+    },
+    {
+      prenom: "Ronald S.",
+      ville: "",
+      etoiles: 5,
+      texte: "Bon service, gentil, je le recommande",
+    },
   ] as { prenom: string; ville: string; etoiles: number; texte: string }[],
 
   /** Lien vers ta fiche Google pour « Voir tous les avis ». */

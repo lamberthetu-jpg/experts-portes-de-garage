@@ -298,3 +298,19 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
 
 /* Dropdown menu for statut */
 [data-admin-theme="light"] .bg-\[\#13131a\] { background-color: #ffffff !important; }
+
+/* Avis Google qui défilent (components/AvisGoogle.tsx) : la liste est
+   doublée, on la fait glisser de la moitié pour boucler sans saut. */
+@keyframes avis-defile {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.avis-defile {
+  animation: avis-defile 45s linear infinite;
+}
+.avis-defile:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .avis-defile { animation: none; }
+}

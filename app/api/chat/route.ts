@@ -13,9 +13,10 @@ Téléphone : 438-808-9604. Disponible 24h/24, 7j/7. Devis gratuit, sans frais c
 SERVICES :
 1. Réparation urgente (ressort, câble, moteur, déraillement, capteurs, télécommande)
 2. Installation de nouvelle porte sectionnelle
-3. Remplacement de coupe-froid — Offre : inspection + lubrification OFFERTES (125$) avec tout remplacement
+3. Remplacement de coupe-froid
 4. Installation/réparation d'ouvre-portes : Belt Drive (silencieux), Chain Drive (robuste), Screw Drive (puissant), Jackshaft (mural)
 5. Vente et programmation de télécommandes
+AUCUNE PROMOTION en cours : ne propose jamais de rabais, d'offre ou de service gratuit.
 
 PRIX INDICATIFS :
 - Inspection : à partir de 39,95$

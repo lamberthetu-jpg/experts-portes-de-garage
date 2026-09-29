@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
 import LandingService, { type ContenuLanding } from "@/components/LandingService";
+import {
+  IllCapteurs,
+  IllMoteurForce,
+  IllMoteurTourne,
+  IllRemonte,
+  IllRienNeSePasse,
+  IllTelecommande,
+} from "@/components/illustrations/PannesOuvrePorte";
 import MotorSection from "@/components/MotorSection";
 import { PHONE_DISPLAY } from "@/lib/config";
 import { pageSchema, jsonLdString } from "@/lib/schema";
@@ -52,12 +60,12 @@ const CONTENU: ContenuLanding = {
   ],
   problemesTitre: "Les pannes d’ouvre-porte que je règle",
   problemes: [
-    { titre: "Rien ne se passe", texte: "Ni la télécommande ni le bouton mural ne répondent. Alimentation, carte ou moteur." },
-    { titre: "Le moteur tourne, la porte bouge pas", texte: "On entend le moteur, mais rien ne monte. Souvent l’engrenage ou la chaîne." },
-    { titre: "La porte remonte toute seule", texte: "Elle touche le sol et remonte. Les capteurs ou l’ajustement de la force." },
-    { titre: "Capteurs mal alignés", texte: "La lumière clignote et la porte refuse de fermer. Les « yeux électriques » près du sol." },
-    { titre: "Télécommande ou clavier mort", texte: "Portée de quelques pieds, ou plus rien du tout. Piles, reprogrammation ou récepteur." },
-    { titre: "Le moteur force ou arrête à mi-chemin", texte: "Souvent ce n’est pas le moteur : c’est un ressort fatigué qui lui laisse tout le poids." },
+    { titre: "Rien ne se passe", texte: "Ni la télécommande ni le bouton mural ne répondent. Alimentation, carte ou moteur." , Ill: IllRienNeSePasse },
+    { titre: "Le moteur tourne, la porte bouge pas", texte: "On entend le moteur, mais rien ne monte. Souvent l’engrenage ou la chaîne." , Ill: IllMoteurTourne },
+    { titre: "La porte remonte toute seule", texte: "Elle touche le sol et remonte. Les capteurs ou l’ajustement de la force." , Ill: IllRemonte },
+    { titre: "Capteurs mal alignés", texte: "La lumière clignote et la porte refuse de fermer. Les « yeux électriques » près du sol." , Ill: IllCapteurs },
+    { titre: "Télécommande ou clavier mort", texte: "Portée de quelques pieds, ou plus rien du tout. Piles, reprogrammation ou récepteur." , Ill: IllTelecommande },
+    { titre: "Le moteur force ou arrête à mi-chemin", texte: "Souvent ce n’est pas le moteur : c’est un ressort fatigué qui lui laisse tout le poids." , Ill: IllMoteurForce },
   ],
   securite:
     "si votre porte est très lourde, bloquée ou croche, ne la forcez pas avec l’ouvre-porte. " +

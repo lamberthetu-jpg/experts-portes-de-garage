@@ -1,6 +1,7 @@
 import Image from "next/image";
 import RappelForm, { type SourceRappel } from "@/components/RappelForm";
 import AvisGoogle from "@/components/AvisGoogle";
+import CartesIllustrees from "@/components/CartesIllustrees";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/config";
 import { LANDING, prix } from "@/lib/landing-granby";
 
@@ -16,7 +17,8 @@ import { LANDING, prix } from "@/lib/landing-granby";
  * `LANDING` : les memes pour toutes les pages.
  */
 
-export type Carte = { titre: string; texte: string };
+/** `Ill` : illustration facultative. Si toutes les cartes de problèmes en ont une, la section devient sombre et illustrée. */
+export type Carte = { titre: string; texte: string; Ill?: () => React.ReactNode };
 
 export type IconeReassurance = "horloge" | "garantie" | "outil" | "diagnostic";
 
@@ -152,6 +154,13 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
       </section>
 
       {/* ── VOIE A : bris urgents ──────────────────────────────────────── */}
+      {c.problemes.every((p) => p.Ill) ? (
+        <CartesIllustrees
+          titre={c.problemesTitre}
+          cartes={c.problemes.map((p) => ({ titre: p.titre, texte: p.texte, Ill: p.Ill! }))}
+          note={c.securite ? { etiquette: "Sécurité :", texte: c.securite } : undefined}
+        />
+      ) : (
       <section className="mx-auto max-w-5xl px-5 py-16 sm:py-20">
         <h2 className="font-heading text-3xl uppercase sm:text-4xl">{c.problemesTitre}</h2>
         <p className="mt-2 text-gray-600">Touchez votre problème pour m’appeler tout de suite.</p>
@@ -179,6 +188,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
           </p>
         )}
       </section>
+      )}
 
       {/* ── Avis Google ────── */}
       <AvisGoogle />

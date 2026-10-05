@@ -166,8 +166,8 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
       <h2><b>3</b> Activité souhaitée</h2>
       <p class="note">Coche tout ce qui te tente.</p>
       <div class="opts">
-        <label class="opt"><input type="checkbox" id="a1" name="act" value="Monter une autre montagne"><span>Monter une autre montagne <small>(il reste juste 25 mètres, promis)</small></span></label>
-        <label class="opt"><input type="checkbox" id="a8" name="act" value="Escalade"><span>Escalade <small>(au moins là, la hauteur est écrite sur le mur)</small></span></label>
+        <label class="opt"><input type="checkbox" id="a1" name="act" value="Monter une autre montagne"><span>Monter une autre montagne</span></label>
+        <label class="opt"><input type="checkbox" id="a8" name="act" value="Escalade"><span>Escalade <small>(le demandeur tient la corde, promis)</small></span></label>
         <label class="opt"><input type="checkbox" id="a2" name="act" value="Resto après la montagne"><span>Resto <small>(après la montagne, faut le mériter)</small></span></label>
         <label class="opt"><input type="checkbox" id="a3" name="act" value="Marche"><span>Marche <small>(sur le plat, pour reposer tes estimations)</small></span></label>
         <label class="opt"><input type="checkbox" id="a4" name="act" value="Spa"><span>Spa <small>(récupération officielle des mollets)</small></span></label>
@@ -209,7 +209,6 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
         <label class="opt"><input type="checkbox" id="e1" name="eval" value="drôle"><span>Drôle</span></label>
         <label class="opt"><input type="checkbox" id="e2" name="eval" value="beau"><span>Beau</span></label>
         <label class="opt"><input type="checkbox" id="e3" name="eval" value="de bonne compagnie"><span>De bonne compagnie</span></label>
-        <label class="opt"><input type="checkbox" id="e5" name="eval" value="meilleur qu'elle pour compter les mètres"><span>Meilleur que moi pour compter les mètres</span></label>
         <label class="opt"><input type="checkbox" id="e4" name="eval" value="un peu trop sûr de lui avec son formulaire"><span>Un peu trop sûr de lui avec son formulaire</span></label>
       </div>
       <input class="line" id="plainte" type="text" maxlength="80" placeholder="Points à améliorer (facultatif, maximum 3 mots)" aria-label="Points à améliorer">
@@ -236,7 +235,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
 
   <section class="admin">
     <span class="k">Réservé à l'administration · ne rien écrire ici</span>
-    <span class="v">Dossier n° D2-2026-0001 · Priorité : très élevée · Marge d'erreur de la destinataire sur les distances : × 10</span>
+    <span class="v">Dossier n° D2-2026-0001 · Priorité : très élevée</span>
   </section>
   <p class="foot">Le Bureau des Deuxièmes Dates n'existe pas. Lambert, oui.</p>
 </main>
@@ -281,7 +280,6 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
     a6:["m4","Courageux. Le demandeur vient de perdre trois heures de sommeil à planifier."],
     q3:["m5","Demain ?! Le demandeur fait semblant d'être calme. Il l'est pas."],
     e2:["m8","😉 Le Bureau prend note. Le demandeur aussi, il fait semblant de pas l'avoir vu."],
-    e5:["m8","Enfin un aveu. Ce document a maintenant valeur légale."],
     e4:["m8","Le Bureau conteste. Le formulaire a pris seulement… plusieurs heures."]};
   Object.keys(blagues).forEach(function(id){$(id).addEventListener("change",function(){
     var m=$(blagues[id][0]);
@@ -291,7 +289,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
 
   var dmsg={d1:["msg","Réponse inexacte. Il en restait plus de 250. Le Bureau a un témoin essoufflé."],
     d2:["msg ok","Bonne réponse. Aveu noté au dossier, il ne sera jamais oublié."],
-    d3:["msg ok","Conforme à ta déclaration : les femmes ont toujours raison. Le Bureau s'incline, les 225 mètres manquants aussi."]};
+    d3:["msg ok","Conforme à ta déclaration : les femmes ont toujours raison. Le Bureau s'incline."]};
   Object.keys(dmsg).forEach(function(id){$(id).addEventListener("change",function(){$("m2").className=dmsg[id][0];$("m2").textContent=dmsg[id][1]})});
 
   var left=600, rush=["Forte demande : les places s'écoulent rapidement. Aucune autre candidate en file d'attente, mais le Bureau recommande de ne pas prendre de chance.",

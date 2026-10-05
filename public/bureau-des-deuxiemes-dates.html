@@ -93,6 +93,17 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
 .fig text{font-family:var(--f-type);font-size:12px;fill:var(--ink)}
 .fig text.r{fill:var(--stamp)}
 .fig figcaption{font-size:13px;color:var(--ink-soft)}
+[hidden]{display:none!important}
+.prog{padding:14px 20px 0;display:flex;flex-direction:column;gap:6px}
+.prog .k{display:flex;justify-content:space-between;gap:10px}
+.prog .bar{height:8px;border:2px solid var(--ink);background:var(--field)}
+.prog .bar i{display:block;height:100%;background:var(--stamp);transition:width .3s}
+.nav{padding:0 20px 18px;display:flex;flex-direction:column;gap:10px}
+.nav .row{display:flex;gap:10px}
+.nav .row .primary{flex:1;width:auto}
+.etape{border-bottom:0;animation:entre .25s ease-out both}
+@keyframes entre{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.etape{animation:none}}
 .foot{padding:12px 20px;font-size:12px;color:var(--ink-soft)}
 @media (max-width:420px){.meta{grid-template-columns:1fr}.meta div{border-right:0}}
 </style>
@@ -127,7 +138,8 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
   </div>
 
   <form id="f" novalidate>
-    <section>
+    <div class="prog" id="prog"><span class="k"><span id="pnum">Étape 1 de 7</span><span id="plbl">Traitement en cours</span></span><div class="bar"><i id="pbar" style="width:14%"></i></div></div>
+    <section class="etape">
       <h2><b>1</b> Décision</h2>
       <p class="note">Acceptes-tu une deuxième date avec le demandeur? Rappel : selon ta propre déclaration d'hier, les femmes ont toujours raison. Ta réponse sera donc la bonne.</p>
       <div class="arena" id="arena">
@@ -137,7 +149,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
       <p class="msg" id="m1" aria-live="polite"></p>
     </section>
 
-    <section>
+    <section class="etape">
       <h2><b>2</b> Test d'estimation des distances</h2>
       <p class="note">Aux trois quarts de la montée d'Owl's Head, combien de mètres restait-il avant le sommet?</p>
       <figure class="fig">
@@ -162,7 +174,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
       <p class="msg" id="m2" aria-live="polite"></p>
     </section>
 
-    <section>
+    <section class="etape">
       <h2><b>3</b> Activité souhaitée</h2>
       <p class="note">Coche tout ce qui te tente.</p>
       <div class="opts">
@@ -178,7 +190,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
       <p class="msg ok" id="m4" aria-live="polite"></p>
     </section>
 
-    <section>
+    <section class="etape">
       <h2><b>4</b> Déclaration alimentaire</h2>
       <p class="note">Tu t'es toi-même déclarée « difficile ». Le Bureau a donc renoncé à deviner et te laisse le crayon.</p>
       <div class="opts">
@@ -191,7 +203,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
       <p class="msg" id="m3" aria-live="polite"></p>
     </section>
 
-    <section>
+    <section class="etape">
       <h2><b>5</b> Délai de traitement</h2>
       <div class="opts">
         <label class="opt"><input type="radio" id="q1" name="quand" value="Cette fin de semaine"><span>Cette fin de semaine</span></label>
@@ -202,7 +214,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
       <p class="msg ok" id="m5" aria-live="polite"></p>
     </section>
 
-    <section>
+    <section class="etape">
       <h2><b>6</b> Évaluation du demandeur</h2>
       <p class="note">Hier, Lambert était… (plusieurs réponses permises, fortement encouragées)</p>
       <div class="opts">
@@ -215,12 +227,16 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
       <p class="msg ok" id="m8" aria-live="polite"></p>
     </section>
 
-    <section>
+    <section class="etape">
       <h2><b>7</b> Signature</h2>
       <input class="line" id="signature" type="text" maxlength="40" placeholder="Signe ici" aria-label="Signature">
       <button type="submit" class="primary" id="go">Soumettre au Bureau</button>
       <p class="msg" id="m6" aria-live="polite"></p>
     </section>
+    <div class="nav" id="nav">
+      <p class="msg" id="mnav" aria-live="polite"></p>
+      <div class="row"><button type="button" id="prev">Retour</button><button type="button" class="primary" id="next">Suivant</button></div>
+    </div>
   </form>
 
   <section id="result" hidden>
@@ -304,8 +320,38 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
 
   function vals(name){return Array.prototype.slice.call(document.querySelectorAll('input[name="'+name+'"]:checked')).map(function(i){return i.value})}
 
+  var etapes=Array.prototype.slice.call(document.querySelectorAll(".etape")), cur=0;
+  var lbl=["Traitement en cours","Vérification des faits","Analyse des préférences","Inspection alimentaire","Calcul du délai","Évaluation en cours","Dernière étape"];
+  function montre(i){
+    cur=i;
+    etapes.forEach(function(s,k){s.hidden=k!==i});
+    $("pnum").textContent="Étape "+(i+1)+" de "+etapes.length;
+    $("plbl").textContent=lbl[i]||"";
+    $("pbar").style.width=Math.round((i+1)/etapes.length*100)+"%";
+    $("prev").hidden=i===0;
+    $("next").hidden=i===etapes.length-1;
+    $("mnav").textContent="";
+    $("prog").scrollIntoView({block:"start",behavior:"smooth"});
+  }
+  function manque(i){
+    if(i===0&&!accepted&&!declined)return "Le Bureau attend ta décision.";
+    if(i===2&&!vals("act").length&&!$("autre").value.trim())return "Coche au moins une activité. Le Bureau insiste (gentiment).";
+    if(i===4&&!vals("quand").length&&!$("jour").value.trim())return "Choisis un moment. Le demandeur a besoin de planifier.";
+    return "";
+  }
+  function suivant(){
+    var m=manque(cur); if(m){$("mnav").textContent=m;return}
+    if(cur===0&&declined){montre(etapes.length-1);return}
+    if(cur<etapes.length-1)montre(cur+1);
+  }
+  $("next").addEventListener("click",suivant);
+  $("prev").addEventListener("click",function(){montre(cur===etapes.length-1&&declined?0:Math.max(0,cur-1))});
+  etapes.forEach(function(s,k){s.hidden=k!==0});
+  $("prev").hidden=true;
+
   $("f").addEventListener("submit",function(e){
     e.preventDefault();
+    if(cur<etapes.length-1){suivant();return}
     var act=vals("act"); if($("autre").value.trim())act.push($("autre").value.trim());
     var bouffe=vals("bouffe")[0];
     var quand=$("jour").value.trim()||vals("quand")[0];

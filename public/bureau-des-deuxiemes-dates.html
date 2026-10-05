@@ -62,7 +62,7 @@ h2 b{flex:none;width:30px;height:30px;display:grid;place-items:center;border:2px
 .line::placeholder{color:var(--ink-soft);opacity:.75}
 #signature{font-family:var(--f-hand);font-size:30px}
 .arena{position:relative;height:130px;border:1px dashed var(--rule)}
-button{font-family:var(--f-label);font-stretch:75%;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:17px;padding:10px 18px;border:2px solid var(--ink);background:var(--field);color:var(--ink);cursor:pointer}
+button,a#sms{font-family:var(--f-label);font-stretch:75%;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:17px;padding:10px 18px;border:2px solid var(--ink);background:var(--field);color:var(--ink);cursor:pointer}
 #oui{position:absolute;left:14px;top:40px}
 #non{position:absolute;left:150px;top:40px;transition:left .18s,top .18s}
 #oui.on,.primary{background:var(--ink);color:var(--paper)}
@@ -223,9 +223,10 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
 
   <section id="result" hidden>
     <div class="stamp">Approuvé</div>
-    <p class="note">Ta demande a été traitée en 0,3 seconde, un record pour le Bureau. Dernière étape : copie ton reçu et envoie-le à Lambert par texto (ou fais une capture d'écran).</p>
+    <p class="note">Ta demande a été traitée en 0,3 seconde, un record pour le Bureau. Dernière étape : envoie ton reçu à Lambert par texto (le bouton écrit le message pour toi, tu n'as qu'à appuyer sur Envoyer).</p>
     <pre id="recu"></pre>
     <div class="barcode" aria-hidden="true"></div>
+    <a class="primary" id="sms" href="#" style="display:block;box-sizing:border-box;text-align:center;text-decoration:none;margin-bottom:10px">Envoyer à Lambert par texto</a>
     <button type="button" class="primary" id="copy">Copier mon reçu</button>
     <p class="msg ok" id="m7" aria-live="polite"></p>
   </section>
@@ -318,6 +319,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
     if(pl)t.push("À améliorer : "+pl);
     t.push("","Signé : "+sig);
     $("recu").textContent=t.join("\n");
+    $("sms").href="sms:+14505585788?&body="+encodeURIComponent(t.join("\n"));
     $("f").hidden=true; $("result").hidden=false;
     $("result").scrollIntoView({block:"start"});
   });

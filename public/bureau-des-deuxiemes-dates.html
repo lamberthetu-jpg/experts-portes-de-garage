@@ -175,6 +175,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
         <label class="opt"><input type="checkbox" id="a6" name="act" value="Surprends-moi"><span>Surprends-moi <small>(courageux de ta part)</small></span></label>
       </div>
       <input class="line" id="autre" type="text" maxlength="80" placeholder="Autre idée : écris-la ici" aria-label="Autre idée d'activité">
+      <p class="msg ok" id="m4" aria-live="polite"></p>
     </section>
 
     <section>
@@ -198,6 +199,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
         <label class="opt"><input type="radio" id="q3" name="quand" value="Demain"><span>Demain <small>(t'es intense, le demandeur approuve)</small></span></label>
       </div>
       <input class="line" id="jour" type="text" maxlength="60" placeholder="Ou un jour précis : ex. jeudi soir" aria-label="Jour précis">
+      <p class="msg ok" id="m5" aria-live="polite"></p>
     </section>
 
     <section>
@@ -211,6 +213,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
         <label class="opt"><input type="checkbox" id="e4" name="eval" value="un peu trop sûr de lui avec son formulaire"><span>Un peu trop sûr de lui avec son formulaire</span></label>
       </div>
       <input class="line" id="plainte" type="text" maxlength="80" placeholder="Points à améliorer (facultatif, maximum 3 mots)" aria-label="Points à améliorer">
+      <p class="msg ok" id="m8" aria-live="polite"></p>
     </section>
 
     <section>
@@ -270,6 +273,21 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
     $("m3").textContent="Réponse refusée. Une personne difficile ne mange pas « n'importe quoi ». Choisis pour vrai.";
   });
   ["b1","b2"].forEach(function(id){$(id).addEventListener("change",function(){$("m3").textContent=""})});
+
+
+  var blagues={
+    a4:["m4","Spa approuvé. Le Bureau rappelle que les mollets de la montagne sont encore en convalescence."],
+    a5:["m4","Noté. Le demandeur apporte sa fourchette et son plus beau visage de juge."],
+    a6:["m4","Courageux. Le demandeur vient de perdre trois heures de sommeil à planifier."],
+    q3:["m5","Demain ?! Le demandeur fait semblant d'être calme. Il l'est pas."],
+    e2:["m8","😉 Le Bureau prend note. Le demandeur aussi, il fait semblant de pas l'avoir vu."],
+    e5:["m8","Enfin un aveu. Ce document a maintenant valeur légale."],
+    e4:["m8","Le Bureau conteste. Le formulaire a pris seulement… plusieurs heures."]};
+  Object.keys(blagues).forEach(function(id){$(id).addEventListener("change",function(){
+    var m=$(blagues[id][0]);
+    if(this.checked){m.textContent=blagues[id][1]}else if(m.textContent===blagues[id][1]){m.textContent=""}
+  })});
+  ["q1","q2"].forEach(function(id){$(id).addEventListener("change",function(){$("m5").textContent=""})});
 
   var dmsg={d1:["msg","Réponse inexacte. Il en restait plus de 250. Le Bureau a un témoin essoufflé."],
     d2:["msg ok","Bonne réponse. Aveu noté au dossier, il ne sera jamais oublié."],

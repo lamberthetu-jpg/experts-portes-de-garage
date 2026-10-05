@@ -303,7 +303,7 @@ pre{margin:0;border-style:dashed!important;border-width:2px!important;border-col
   })});
   ["q1","q2"].forEach(function(id){$(id).addEventListener("change",function(){$("m5").textContent=""})});
 
-  var dmsg={d1:["msg","Réponse inexacte. Il en restait plus de 250. Le Bureau a un témoin essoufflé."],
+  var dmsg={d1:["msg","Réponse inexacte. Il en restait plus de 250. Le Bureau a un témoin, pis il a compté chaque pas."],
     d2:["msg ok","Bonne réponse. Aveu noté au dossier, il ne sera jamais oublié."],
     d3:["msg ok","Conforme à ta déclaration : les femmes ont toujours raison. Le Bureau s'incline."]};
   Object.keys(dmsg).forEach(function(id){$(id).addEventListener("change",function(){$("m2").className=dmsg[id][0];$("m2").textContent=dmsg[id][1]})});

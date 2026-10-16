@@ -48,6 +48,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/images/maison_garage_v1.webp"],
   },
+  // Vérification du domaine par Meta (portfolio Experts Portes de Garage).
+  other: { "facebook-domain-verification": "1wbe5r7ij3xm9g48ke8v6cg0nxnahc" },
 };
 
 export default function RootLayout({

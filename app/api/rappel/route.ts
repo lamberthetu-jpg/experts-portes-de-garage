@@ -79,6 +79,7 @@ const PAGES = {
   depannage: "Dépannage (test A/B, version B)",
   ressort: "Ressorts (annonces)",
   ouvre_porte: "Ouvre-porte (annonces)",
+  mise_au_point: "Mise au point 39,95 $",
 } as const;
 
 function escapeHtml(s: string): string {

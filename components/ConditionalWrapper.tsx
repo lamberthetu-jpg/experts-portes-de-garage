@@ -8,6 +8,7 @@ const ChatBot = dynamic(() => import("./ChatBot"), { ssr: false });
 
 const HIDDEN_ON: string[] = [
   "/reparation-porte-garage-granby",
+  "/mise-au-point",
   "/reparation-ressort-porte-de-garage",
   "/reparation-ouvre-porte-garage-granby",
   "/avis",

@@ -54,12 +54,31 @@ export const LANDING = {
   },
 
   /**
-   * Vrais avis Google seulement (fiche lue le 26 sept. 2026 : 7 avis, 4,9/5).
+   * Vrais avis Google seulement (fiche relue le 15 oct. 2026 : 10 avis, 4,9/5).
    * Prénom + initiale, pas de ville (les avis Google ne la donnent pas).
    * Tableau vide = section masquée.
    * N'invente jamais d'avis : c'est illégal et ça se retourne contre toi.
    */
   avis: [
+    {
+      prenom: "Mathieu",
+      ville: "",
+      etoiles: 5,
+      texte: "Super service, bon prix! Je recommande.",
+    },
+    {
+      prenom: "Thomas C.",
+      ville: "",
+      etoiles: 5,
+      texte: "Excellent service! Très professionnel, compétent et efficace. Je recommande fortement!",
+    },
+    {
+      prenom: "Christian T.",
+      ville: "",
+      etoiles: 5,
+      texte:
+        "Professionnel, rapide et efficaces je ne ferais plus jamais affaire avec un autre fournisseur.",
+    },
     {
       prenom: "Yvan P.",
       ville: "",

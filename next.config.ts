@@ -23,7 +23,8 @@ const nextConfig: NextConfig = {
         // changer la destination ici sans réimprimer les autocollants.
         {
           source: "/qr",
-          destination: "/?utm_source=autocollant&utm_medium=qr",
+          // Hiver 2026 : l'offre de mise au point. Au printemps, remettre "/".
+          destination: "/mise-au-point?utm_source=autocollant&utm_medium=qr",
           permanent: false,
         },
       ]);

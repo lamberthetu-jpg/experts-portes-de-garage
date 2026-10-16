@@ -6,7 +6,7 @@ import { gtagConversion } from "@/lib/gtag";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/config";
 
 /** `source` = page d'origine, reprise dans le courriel reçu et dans les stats (défaut : granby). */
-export type SourceRappel = "granby" | "depannage" | "ressort" | "ouvre_porte";
+export type SourceRappel = "granby" | "depannage" | "ressort" | "ouvre_porte" | "mise_au_point";
 
 export default function RappelForm({ source = "granby" }: { source?: SourceRappel }) {
   const [nom, setNom] = useState("");
@@ -99,7 +99,7 @@ export default function RappelForm({ source = "granby" }: { source?: SourceRappe
 
         <div>
           <label htmlFor="probleme" className="mb-1.5 block text-sm font-semibold text-gray-700">
-            Qu’est-ce qui se passe avec votre porte?
+            {source === "mise_au_point" ? "Votre adresse (et un détail si vous voulez)" : "Qu’est-ce qui se passe avec votre porte?"}
           </label>
           <textarea
             id="probleme"
@@ -107,7 +107,7 @@ export default function RappelForm({ source = "granby" }: { source?: SourceRappe
             onChange={(e) => setProbleme(e.target.value)}
             rows={3}
             className="w-full resize-none rounded-xl border border-gray-300 px-4 py-3 text-base outline-none transition-colors focus:border-brand"
-            placeholder="Un gros bang ce matin et la porte ne lève plus."
+            placeholder={source === "mise_au_point" ? "123 rue Principale, Granby. La porte grince un peu." : "Un gros bang ce matin et la porte ne lève plus."}
           />
         </div>
       </div>

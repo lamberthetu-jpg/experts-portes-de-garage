@@ -12,6 +12,7 @@ const serviceLinks = [
 const companyLinks = [
   { href: "/a-propos", label: "À propos" },
   { href: "/carriere", label: "Carrières" },
+  { href: "/politique-de-confidentialite", label: "Confidentialité" },
 ];
 
 const blogLinks = [

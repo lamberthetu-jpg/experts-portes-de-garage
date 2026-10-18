@@ -27,6 +27,14 @@ const nextConfig: NextConfig = {
           destination: "/mise-au-point?utm_source=autocollant&utm_medium=qr",
           permanent: false,
         },
+        // Liens envoyés aux clients par Vitryne (oct. 2026) : le texto montre
+        // expertsportesdegarage.ca, la page elle-même vit sur vitryne.ca.
+        // f = facture, e = soumission, p = portail client.
+        ...["f", "e", "p"].map((type) => ({
+          source: `/${type}/:token`,
+          destination: `https://vitryne.ca/${type}/:token`,
+          permanent: false,
+        })),
       ]);
   },
 };

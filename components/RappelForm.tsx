@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { vientDuneAnnonce } from "@/lib/suivi";
 import { track } from "@vercel/analytics";
 import { gtagConversion } from "@/lib/gtag";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/config";
@@ -28,7 +29,7 @@ export default function RappelForm({ source = "granby" }: { source?: SourceRappe
       const res = await fetch("/api/rappel", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nom, telephone, probleme, source }),
+        body: JSON.stringify({ nom, telephone, probleme, source, annonce: vientDuneAnnonce() }),
       });
       if (!res.ok) throw new Error();
       track("demande_rappel", { formulaire: source });

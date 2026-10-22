@@ -11,6 +11,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import ClickTracker from "@/components/ClickTracker";
 import GoogleTag from "@/components/GoogleTag";
+import NumeroSuivi from "@/components/NumeroSuivi";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
@@ -74,6 +75,7 @@ export default function RootLayout({
           <Analytics />
           <ClickTracker />
           <GoogleTag />
+          <NumeroSuivi />
         </BookingModalProvider>
       </body>
     </html>

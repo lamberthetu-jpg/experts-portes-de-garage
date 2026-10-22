@@ -9,7 +9,7 @@ import { getSupabase } from "@/lib/supabase";
  */
 export async function POST(req: Request) {
   try {
-    const { nom, telephone, probleme, source } = await req.json();
+    const { nom, telephone, probleme, source, annonce } = await req.json();
     // Page d'origine, liste fermée (jamais de texte libre du client dans le courriel).
     const page = PAGES[source as keyof typeof PAGES] ?? PAGES.granby;
 
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
       from: `Experts Portes de Garage <${process.env.RESEND_FROM_EMAIL!}>`,
       to: [process.env.OWNER_EMAIL!],
       replyTo: process.env.OWNER_EMAIL!,
-      subject: `Demande de rappel — ${propre.nom} — ${propre.telephone}`,
+      subject: `Demande de rappel${annonce === true ? " (annonce Google)" : ""} — ${propre.nom} — ${propre.telephone}`,
       html: `
         <div style="font-family:system-ui,sans-serif;max-width:560px">
           <h2 style="color:#cc0000;margin:0 0 16px">Nouvelle demande de rappel</h2>
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
             escapeHtml(propre.probleme) || "(rien d'écrit)"
           }</p>
           <p style="margin:20px 0 0;color:#666;font-size:13px">
-            Reçu par la page ${page}.
+            Reçu par la page ${page}.${annonce === true ? " <strong>Provenance : annonce Google.</strong>" : ""}
           </p>
         </div>
       `,

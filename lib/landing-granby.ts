@@ -37,8 +37,8 @@ export const LANDING = {
    * Mettre a null pour masquer toute la section Prix.
    */
   prixMinimum: 125 as number | null,      // petite job reglee sur place
-  tauxHoraire: 145 as number | null,      // par heure, pieces en sus
-  prixUrgence: 350 as number | null,      // sortie d'urgence : laisser tout tomber, hors route
+  tauxHoraire: 170 as number | null,      // par heure, pieces en sus
+  prixUrgence: 400 as number | null,      // sortie d'urgence : laisser tout tomber, hors route
 
   /** Mise au point annuelle : prix et durée. */
   miseAuPoint: {

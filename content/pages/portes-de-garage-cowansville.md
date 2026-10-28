@@ -20,9 +20,9 @@ Appelez le [438-808-9604](tel:4388089604).
 
 **Frais minimum, 125 $.** Une petite affaire que je règle sur place en quelques minutes.
 
-**Taux horaire, 145 $ de l'heure.** Pour tout le reste. Les pièces sont en sus, et je vous donne le prix avant de commencer.
+**Taux horaire, 170 $ de l'heure.** Pour tout le reste. Les pièces sont en sus, et je vous donne le prix avant de commencer.
 
-**Sortie d'urgence, 350 $.** Seulement quand vous ne pouvez pas attendre et que je laisse tout tomber pour me rendre chez vous tout de suite, en dehors de ma route de la journée. **Si votre porte peut attendre à demain, vous payez le taux horaire normal.**
+**Sortie d'urgence, 400 $.** Seulement quand vous ne pouvez pas attendre et que je laisse tout tomber pour me rendre chez vous tout de suite, en dehors de ma route de la journée. **Si votre porte peut attendre à demain, vous payez le taux horaire normal.**
 
 **Si je ne suis pas capable de réparer votre porte, vous ne payez rien.**
 
@@ -56,7 +56,7 @@ Bromont, Dunham, Lac-Brome, Sutton, Farnham, Brigham, East Farnham, Saint-Ignace
 
 **Est-ce que vous chargez des frais de déplacement pour venir à Cowansville?**
 
-Non. Cowansville est à 20 minutes de Granby et fait partie de ma zone régulière. Vous payez le même frais minimum et le même taux horaire qu'un client de Granby. Les 350 $ de sortie d'urgence s'appliquent seulement si je dois abandonner ma journée pour partir tout de suite.
+Non. Cowansville est à 20 minutes de Granby et fait partie de ma zone régulière. Vous payez le même frais minimum et le même taux horaire qu'un client de Granby. Les 400 $ de sortie d'urgence s'appliquent seulement si je dois abandonner ma journée pour partir tout de suite.
 
 **Vous pouvez venir la fin de semaine ou le soir?**
 

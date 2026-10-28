@@ -20,9 +20,9 @@ Appelez le [438-808-9604](tel:4388089604).
 
 **Frais minimum, 125 $.** Une petite affaire réglée sur place en quelques minutes.
 
-**Taux horaire, 145 $ de l'heure.** Pour tout le reste. Les pièces sont en sus, et vous avez le prix avant que je commence.
+**Taux horaire, 170 $ de l'heure.** Pour tout le reste. Les pièces sont en sus, et vous avez le prix avant que je commence.
 
-**Sortie d'urgence, 350 $.** Uniquement quand vous ne pouvez pas attendre et que je laisse tomber ma journée pour me rendre chez vous immédiatement. **Si votre porte peut attendre à demain, c'est le taux horaire normal qui s'applique.**
+**Sortie d'urgence, 400 $.** Uniquement quand vous ne pouvez pas attendre et que je laisse tomber ma journée pour me rendre chez vous immédiatement. **Si votre porte peut attendre à demain, c'est le taux horaire normal qui s'applique.**
 
 **Si je ne suis pas capable de réparer votre porte, vous ne payez rien.**
 
@@ -54,7 +54,7 @@ Cowansville, Bromont, Saint-Césaire, Ange-Gardien, Brigham, East Farnham, Saint
 
 **Est-ce que ça coûte plus cher parce que je suis à Farnham?**
 
-Non. Farnham est dans ma zone régulière. Vous payez le même frais minimum et le même taux horaire qu'un client de Granby. Les 350 $ de sortie d'urgence ne s'appliquent que si je dois partir immédiatement en abandonnant ma journée.
+Non. Farnham est dans ma zone régulière. Vous payez le même frais minimum et le même taux horaire qu'un client de Granby. Les 400 $ de sortie d'urgence ne s'appliquent que si je dois partir immédiatement en abandonnant ma journée.
 
 **Vous venez les fins de semaine?**
 

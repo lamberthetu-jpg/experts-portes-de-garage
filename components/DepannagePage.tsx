@@ -15,8 +15,8 @@ import AvisGoogle from "@/components/AvisGoogle";
 
 const prix = [
   { titre: "Frais minimum", detail: "Une petite affaire que je règle sur place en quelques minutes.", montant: "125 $" },
-  { titre: "Taux horaire", detail: "Pour tout le reste. Les pièces sont en sus et je vous donne le prix avant de commencer.", montant: "145 $/h" },
-  { titre: "Sortie d’urgence", detail: "Je laisse tout tomber pour me rendre chez vous tout de suite. Comprend la première heure sur place, ensuite 145 $/h. Si votre porte peut attendre à demain, c’est le taux horaire normal.", montant: "350 $" },
+  { titre: "Taux horaire", detail: "Pour tout le reste. Les pièces sont en sus et je vous donne le prix avant de commencer.", montant: "170 $/h" },
+  { titre: "Sortie d’urgence", detail: "Je laisse tout tomber pour me rendre chez vous tout de suite. Comprend la première heure sur place, ensuite 170 $/h. Si votre porte peut attendre à demain, c’est le taux horaire normal.", montant: "400 $" },
 ];
 
 const problemes = [
@@ -29,8 +29,8 @@ const problemes = [
 ];
 
 const faq = [
-  { q: "Ça coûte combien?", a: "Les prix sont affichés sur cette page : 125 $ minimum, 145 $/h pour le reste, pièces en sus. Je vous donne toujours le prix avant de commencer." },
-  { q: "Vous venez le jour même?", a: "Pour une urgence, oui : je laisse tout tomber et je me rends chez vous (sortie d’urgence : 350 $ pour la première heure sur place, ensuite 145 $/h). Si votre porte peut attendre à demain, vous payez le taux horaire normal." },
+  { q: "Ça coûte combien?", a: "Les prix sont affichés sur cette page : 125 $ minimum, 170 $/h pour le reste, pièces en sus. Je vous donne toujours le prix avant de commencer." },
+  { q: "Vous venez le jour même?", a: "Pour une urgence, oui : je laisse tout tomber et je me rends chez vous (sortie d’urgence : 400 $ pour la première heure sur place, ensuite 170 $/h). Si votre porte peut attendre à demain, vous payez le taux horaire normal." },
   { q: "Et si vous ne pouvez pas la réparer?", a: "Vous ne payez rien. C’est aussi simple que ça." },
 ];
 

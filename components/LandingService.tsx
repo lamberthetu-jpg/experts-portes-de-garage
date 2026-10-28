@@ -303,7 +303,7 @@ export default function LandingService({ contenu: c }: { contenu: ContenuLanding
               <LignePrix
                 titre="Sortie d’urgence"
                 montant={prix(LANDING.prixUrgence)}
-                detail="Quand vous ne pouvez pas attendre et que je laisse tout tomber pour me rendre chez vous tout de suite, en dehors de ma route de la journée. Comprend la première heure sur place, ensuite 145 $/h. Si votre porte peut attendre à demain, vous payez le taux horaire normal."
+                detail="Quand vous ne pouvez pas attendre et que je laisse tout tomber pour me rendre chez vous tout de suite, en dehors de ma route de la journée. Comprend la première heure sur place, ensuite 170 $/h. Si votre porte peut attendre à demain, vous payez le taux horaire normal."
               />
             )}
           </dl>

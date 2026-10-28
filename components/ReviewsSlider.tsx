@@ -33,7 +33,7 @@ const ENGAGEMENTS = [
   {
     titre: "Le prix avant de commencer",
     texte:
-      "Frais minimum de 125 $, taux horaire de 145 $, pièces en sus. Vous savez à quoi vous attendre avant que je touche à quoi que ce soit.",
+      "Frais minimum de 125 $, taux horaire de 170 $, pièces en sus. Vous savez à quoi vous attendre avant que je touche à quoi que ce soit.",
     icone: (
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m-6 4h6m-6 4h4M5 4h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5a1 1 0 011-1z" />
     ),

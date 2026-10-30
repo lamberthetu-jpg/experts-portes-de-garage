@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { getSupabase } from "@/lib/supabase";
-import { attributionDuCookie } from "@/lib/suivi";
+import { provenanceDuCookie } from "@/lib/suivi";
+import { envoyerAVitryne } from "@/lib/vitryne";
 
 /**
  * Formulaire court de la page /reparation-porte-garage-granby
@@ -12,8 +13,7 @@ export async function POST(req: Request) {
   try {
     const { nom, telephone, probleme, source } = await req.json();
     // Provenance du premier passage (témoin eg_ft, lib/suivi.ts).
-    const attribution = attributionDuCookie(req.headers.get("cookie"));
-    const annonce = attribution?.source === "google";
+    const annonce = provenanceDuCookie(req.headers.get("cookie"))?.source === "google";
     // Page d'origine, liste fermée (jamais de texte libre du client dans le courriel).
     const page = PAGES[source as keyof typeof PAGES] ?? PAGES.granby;
 
@@ -34,12 +34,19 @@ export async function POST(req: Request) {
         await getSupabase()
           .from("clients")
           .upsert(
-            { nom: propre.nom, telephone: propre.telephone, ...attribution },
+            { nom: propre.nom, telephone: propre.telephone },
             { onConflict: "telephone" }
           );
       } catch (err) {
         console.error("[rappel] supabase:", err);
       }
+    }
+
+    // Au CRM de Lambert (Vitryne), avec la provenance : il reçoit un texto.
+    // Si Vitryne ne la prend pas, le courriel d'avant part comme toujours.
+    const cle = typeof source === "string" && Object.hasOwn(PAGES, source) ? source : "granby";
+    if (await envoyerAVitryne(req, { nom: propre.nom, telephone: propre.telephone, message: propre.probleme || undefined, service: `rappel, page ${page}`, page: cle })) {
+      return NextResponse.json({ success: true });
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY!);

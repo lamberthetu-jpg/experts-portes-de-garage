@@ -1,8 +1,7 @@
 // Lancer : npm test (node --test, Node 22.18+).
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { SCRIPT_CAPTURE, attributionDuCookie, sourceDuNumero } from "./suivi.ts";
-import { signatureMetaValide, signatureTwilioValide } from "./webhooks.ts";
+import { SCRIPT_CAPTURE, numerosSuivi, provenanceDuCookie } from "./suivi.ts";
 
 /** Exécute le script de capture dans un faux navigateur, avec les témoins déjà présents. */
 function visite(url: string, referrer = "", pots: Map<string, string> = new Map()) {
@@ -73,47 +72,27 @@ test("le premier contact n'est jamais écrasé, la ligne suit la dernière annon
   assert.equal(visite(`${SITE}/a-propos`, "", pots).ligne, "google");
 });
 
-test("attributionDuCookie : relit le témoin, refuse le reste", () => {
+test("provenanceDuCookie : relit le témoin, refuse le reste", () => {
   const { cookie } = visite(`${SITE}/reparation-porte-garage-granby?gclid=g1&utm_campaign=c`);
-  const a = attributionDuCookie(`autre=1; ${cookie}`);
+  const a = provenanceDuCookie(`autre=1; ${cookie}`);
   assert.equal(a?.source, "google");
   assert.equal(a?.gclid, "g1");
   assert.equal(a?.utm_campaign, "c");
   assert.equal(a?.fbclid, null);
   assert.equal(a?.landing_page, "/reparation-porte-garage-granby");
   assert.ok(a?.first_seen_at);
-  assert.equal(attributionDuCookie(`eg_ft=${encodeURIComponent('{"s":"admin","t":"pas une date"}')}`)?.source, "unknown");
-  assert.equal(attributionDuCookie(`eg_ft=${encodeURIComponent('{"s":"admin","t":"pas une date"}')}`)?.first_seen_at, null);
-  assert.equal(attributionDuCookie("eg_ft=%7Bcass%C3%A9"), null);
-  assert.equal(attributionDuCookie(null), null);
+  assert.equal(provenanceDuCookie(`eg_ft=${encodeURIComponent('{"s":"admin"}')}`), null);
+  assert.equal(provenanceDuCookie(`eg_ft=${encodeURIComponent('{"s":"meta","t":"pas une date"}')}`)?.first_seen_at, null);
+  assert.equal(provenanceDuCookie("eg_ft=%7Bcass%C3%A9"), null);
+  assert.equal(provenanceDuCookie(null), null);
 });
 
-test("sourceDuNumero : ligne composée → provenance", () => {
-  process.env.TWILIO_NUMBER_GOOGLE = "+14509152421";
-  process.env.TWILIO_NUMBER_ORGANIC = "+14388089604";
+test("numéros : Meta retombe sur l'organique tant que TWILIO_NUMBER_META est vide", () => {
+  delete process.env.TWILIO_NUMBER_GOOGLE;
+  delete process.env.TWILIO_NUMBER_ORGANIC;
   delete process.env.TWILIO_NUMBER_META;
-  assert.equal(sourceDuNumero("+14509152421"), "google");
-  assert.equal(sourceDuNumero("+14388089604"), "organic");
-  assert.equal(sourceDuNumero("+15145550000"), "unknown");
+  assert.deepEqual(numerosSuivi(), { google: "450-915-2421", meta: "438-808-9604", organic: "438-808-9604" });
   process.env.TWILIO_NUMBER_META = "+14505550199";
-  assert.equal(sourceDuNumero("+14505550199"), "meta");
-});
-
-test("signature Twilio : vecteur calculé par le SDK officiel (twilio@5 getExpectedTwilioSignature)", () => {
-  const url = "https://www.expertsportesdegarage.ca/api/twilio/appel";
-  const params = { CallSid: "CA123", From: "+14505551234", To: "+14509152421", CallStatus: "completed", CallDuration: "75", Direction: "inbound" };
-  assert.equal(signatureTwilioValide("jeton-test", url, params, "bmIITY+DxIuVqCxjaySUjKvjZeA="), true);
-  assert.equal(signatureTwilioValide("jeton-test", url, { ...params, CallDuration: "750" }, "bmIITY+DxIuVqCxjaySUjKvjZeA="), false);
-  assert.equal(signatureTwilioValide("autre-jeton", url, params, "bmIITY+DxIuVqCxjaySUjKvjZeA="), false);
-  assert.equal(signatureTwilioValide("jeton-test", url, params, null), false);
-  assert.equal(signatureTwilioValide("", url, params, "bmIITY+DxIuVqCxjaySUjKvjZeA="), false);
-});
-
-test("signature Meta : sha256= + HMAC du corps brut (référence : openssl dgst -sha256 -hmac secret)", () => {
-  const corps = '{"object":"page","entry":[]}';
-  const sig = "sha256=550e646d4869f9eaf9e56ccc2b73b528c8d3aac4a24ff137e0a26e3e45bbd075";
-  assert.equal(signatureMetaValide("secret", corps, sig), true);
-  assert.equal(signatureMetaValide("secret", corps + " ", sig), false);
-  assert.equal(signatureMetaValide("secret", corps, null), false);
-  assert.equal(signatureMetaValide("", corps, sig), false);
+  assert.equal(numerosSuivi().meta, "450-555-0199");
+  delete process.env.TWILIO_NUMBER_META;
 });

@@ -80,7 +80,7 @@ export default function PolitiqueConfidentialite() {
           Nous utilisons aussi nos propres témoins (eg_ft et eg_n, 90 jours) pour savoir comment vous nous avez trouvés :
           annonce Google, Facebook ou Instagram, ou autrement. Ils retiennent la page d’arrivée et les paramètres du lien
           suivi (utm, gclid, fbclid), et le numéro de téléphone affiché en dépend. Si vous nous écrivez ou nous appelez,
-          cette provenance est notée à votre dossier. Ces témoins ne sont transmis à aucun tiers.
+          cette provenance est notée à votre dossier dans notre logiciel de gestion (Vitryne). Ces témoins ne sont transmis à aucun autre tiers.
         </p>
       </Section>
 

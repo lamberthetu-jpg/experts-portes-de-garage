@@ -10,29 +10,20 @@
  * 2. Le numéro affiché suit la provenance (témoin eg_n, 90 jours) : un
  *    visiteur venu d'une annonce Google voit la ligne Google, un visiteur de
  *    Facebook/Instagram la ligne Meta, les autres la ligne organique. Chaque
- *    ligne est un numéro Twilio qui sonne chez Lambert ; l'appel dit à
- *    /api/twilio/appel par quelle ligne le client est entré.
+ *    ligne est un numéro Twilio de Vitryne : Vitryne sait par quelle ligne
+ *    le client a appelé (lignes_suivi).
  * 3. Les formulaires n'ont rien à envoyer : le serveur lit eg_ft dans la
- *    requête et l'écrit dans la fiche client.
+ *    requête et le passe à Vitryne avec la demande (lib/vitryne.ts).
  *
  * Les numéros viennent des variables TWILIO_NUMBER_GOOGLE / _META / _ORGANIC
  * (format +14509152421). Le robot de Google ne passe jamais par une annonce :
  * il voit la ligne organique, le même numéro que la fiche Google.
  */
 
-export type Source = "google" | "meta" | "organic" | "direct" | "unknown";
 type Ligne = "google" | "meta" | "organic";
 
-export const SOURCE_LABELS: Record<Source, string> = {
-  google: "Google Ads",
-  meta: "Facebook / Insta",
-  organic: "Organique",
-  direct: "Direct",
-  unknown: "Inconnue",
-};
-
 /** Les 10 chiffres d'un numéro nord-américain, ou "" si ce n'en est pas un. */
-export function chiffresTel(tel: string): string {
+function chiffresTel(tel: string): string {
   const c = tel.replace(/\D/g, "");
   return c.length >= 10 ? c.slice(-10) : "";
 }
@@ -52,17 +43,6 @@ export function numerosSuivi(): Record<Ligne, string> {
     meta: process.env.TWILIO_NUMBER_META ? formatTel(process.env.TWILIO_NUMBER_META) : organic,
     organic,
   };
-}
-
-/** Ligne Twilio composée par le client → provenance. */
-export function sourceDuNumero(numeroCompose: string): Source {
-  const c = chiffresTel(numeroCompose);
-  if (!c) return "unknown";
-  const n = numerosSuivi();
-  if (c === chiffresTel(n.google)) return "google";
-  if (process.env.TWILIO_NUMBER_META && c === chiffresTel(n.meta)) return "meta";
-  if (c === chiffresTel(n.organic)) return "organic";
-  return "unknown";
 }
 
 /**
@@ -92,9 +72,9 @@ window.egLigne=(n==='google'||n==='meta')?n:'organic';
 }catch(e){window.egLigne=window.egLigne||'organic'}
 })();`;
 
-/** Colonnes de provenance d'une fiche client. */
-export type Attribution = {
-  source: Source;
+/** Le premier contact, tel que Vitryne le reçoit (/api/demandes/site). */
+export type Provenance = {
+  source: Ligne;
   utm_source: string | null;
   utm_medium: string | null;
   utm_campaign: string | null;
@@ -107,9 +87,10 @@ export type Attribution = {
 /**
  * Lit le témoin eg_ft dans l'en-tête Cookie d'une requête. Le témoin vient du
  * navigateur : tout est revalidé ici (liste fermée, longueurs bornées).
- * Sans témoin (bloqué, autre appareil) : null, la fiche reste sans source.
+ * Sans témoin (bloqué, autre appareil) ou source inconnue : null, Vitryne
+ * classe alors la demande « site web ».
  */
-export function attributionDuCookie(cookieHeader: string | null): Attribution | null {
+export function provenanceDuCookie(cookieHeader: string | null): Provenance | null {
   const m = (cookieHeader ?? "").match(/(?:^|;\s*)eg_ft=([^;]*)/);
   if (!m) return null;
   try {
@@ -117,8 +98,9 @@ export function attributionDuCookie(cookieHeader: string | null): Attribution | 
     const t = (k: string, max = 200) => (typeof v[k] === "string" && v[k] ? (v[k] as string).slice(0, max) : null);
     const s = t("s");
     const date = t("t", 40);
+    if (s !== "google" && s !== "meta" && s !== "organic") return null;
     return {
-      source: s === "google" || s === "meta" || s === "organic" ? s : "unknown",
+      source: s,
       utm_source: t("us"),
       utm_medium: t("um"),
       utm_campaign: t("uc"),

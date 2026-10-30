@@ -3,7 +3,7 @@ import { sendBookingEmails } from "@/lib/notifications";
 import { generateQuotePdf, generateQuoteNum } from "@/lib/quote-pdf";
 import type { WeatherSealBookingPayload } from "@/lib/notifications";
 import { saveWeatherSealBookingToDb } from "@/lib/db";
-import { attributionDuCookie } from "@/lib/suivi";
+import { envoyerAVitryne } from "@/lib/vitryne";
 
 export async function POST(req: Request) {
   try {
@@ -33,13 +33,19 @@ export async function POST(req: Request) {
     };
 
     if (process.env.SUPABASE_URL) {
-      try { await saveWeatherSealBookingToDb(payload, attributionDuCookie(req.headers.get("cookie"))); } catch (err) { console.error("[booking-coupe-froid] supabase error:", err); }
+      try { await saveWeatherSealBookingToDb(payload); } catch (err) { console.error("[booking-coupe-froid] supabase error:", err); }
     }
     let pdfBuffer: Buffer | undefined;
     if (wantQuote && quoteNum) {
       try { pdfBuffer = await generateQuotePdf(payload, quoteNum); } catch (err) { console.error("[booking-coupe-froid] quote pdf error:", err); }
     }
-    await sendBookingEmails(payload, pdfBuffer);
+    const dansVitryne = await envoyerAVitryne(req, {
+      nom, telephone, courriel, adresse, ville,
+      service: payload.serviceType,
+      message: [notes, quoteNum && `Soumission ${quoteNum}`].filter(Boolean).join("\n") || undefined,
+      page: "coupe_froid",
+    });
+    await sendBookingEmails(payload, pdfBuffer, !dansVitryne);
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("[booking-coupe-froid] error:", err);

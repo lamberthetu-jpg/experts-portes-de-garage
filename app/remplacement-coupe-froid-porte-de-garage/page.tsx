@@ -94,8 +94,8 @@ export default function RemplacementCoupeFroidPage() {
                       </svg>
                     ))}
                   </div>
-                  <span className="text-white font-bold text-sm">4,9</span>
-                  <span className="text-white/50 text-xs">/ 10 avis Google</span>
+                  <span className="text-white font-bold text-sm">5,0</span>
+                  <span className="text-white/50 text-xs">/ 23 avis Google</span>
                 </div>
                 <span className="text-white/20 hidden sm:block">|</span>
                 <div className="flex items-center gap-1.5 text-white/70 text-xs">
@@ -193,8 +193,8 @@ export default function RemplacementCoupeFroidPage() {
                   </svg>
                 ))}
               </div>
-              <span className="font-bold text-gray-800">4,9/5</span>
-              <span>sur Google · 10 avis</span>
+              <span className="font-bold text-gray-800">5,0/5</span>
+              <span>sur Google · 23 avis</span>
             </div>
             <div className="hidden sm:block w-px h-5 bg-gray-200" />
             <div className="flex items-center gap-2">

@@ -15,6 +15,8 @@ export default function AvisGoogle() {
 
   const moyenne = avis.reduce((t, a) => t + a.etoiles, 0) / avis.length;
   const note = moyenne.toFixed(1).replace(".", ",");
+  // Les avis sans texte comptent dans la note, mais n'ont pas de carte.
+  const cartes = avis.filter((a) => a.texte);
 
   return (
     <section className="overflow-hidden border-y border-gray-100 bg-white">
@@ -29,9 +31,10 @@ export default function AvisGoogle() {
 
       {/* Liste doublée : l'animation glisse de la moitié pour boucler sans saut. */}
       <div className="mt-7 pb-2">
-        <ul className="avis-defile flex w-max gap-4 px-5">
-          {[...avis, ...avis].map((a, i) => (
-            <li key={i} aria-hidden={i >= avis.length} className="w-72 shrink-0 sm:w-80">
+        {/* Même vitesse peu importe le nombre d'avis : environ 4,5 s par carte. */}
+        <ul className="avis-defile flex w-max gap-4 px-5" style={{ animationDuration: `${cartes.length * 4.5}s` }}>
+          {[...cartes, ...cartes].map((a, i) => (
+            <li key={i} aria-hidden={i >= cartes.length} className="w-72 shrink-0 sm:w-80">
               <blockquote className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white p-5 shadow-[0_8px_24px_-20px_rgba(0,0,0,0.35)]">
                 <p className="text-lg leading-none tracking-[0.15em] text-[#F5B400]" aria-label={`${a.etoiles} étoiles sur 5`}>
                   {"★".repeat(a.etoiles)}

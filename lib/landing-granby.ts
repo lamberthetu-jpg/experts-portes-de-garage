@@ -54,12 +54,101 @@ export const LANDING = {
   },
 
   /**
-   * Vrais avis Google seulement (fiche relue le 15 oct. 2026 : 10 avis, 4,9/5).
+   * Vrais avis Google seulement (fiche relue le 29 oct. 2026 : 23 avis, 5,0/5).
+   * Plus récent en premier. Un avis sans texte (étoiles seulement) a texte vide :
+   * il compte dans la note mais n'a pas de carte.
    * Prénom + initiale, pas de ville (les avis Google ne la donnent pas).
    * Tableau vide = section masquée.
    * N'invente jamais d'avis : c'est illégal et ça se retourne contre toi.
    */
   avis: [
+    {
+      prenom: "Louis R.",
+      ville: "",
+      etoiles: 5,
+      texte: "Bon service.",
+    },
+    {
+      prenom: "Un client",
+      ville: "",
+      etoiles: 5,
+      texte: "Très professionnel, belle approche avec les clientèle.",
+    },
+    {
+      prenom: "Véronique T.",
+      ville: "",
+      etoiles: 5,
+      texte: "Nous reçu un très bon service. Nous recommandons ses services.",
+    },
+    {
+      prenom: "Cassandra C.",
+      ville: "",
+      etoiles: 5,
+      texte: "Merci Lambert pour ton très bon travail !",
+    },
+    {
+      prenom: "Tiger F.",
+      ville: "",
+      etoiles: 5,
+      texte: "Excellent service, je recommande",
+    },
+    {
+      prenom: "Luce T.",
+      ville: "",
+      etoiles: 5,
+      texte: "Très bon service : ponctuel, minutieux. Je le recommande sans hésitation.",
+    },
+    {
+      prenom: "Garry C.",
+      ville: "",
+      etoiles: 5,
+      texte:
+        "Fournisseur est arrivé à l’heure prévue. Tout ce dont il avait besoin était dans son véhicule. " +
+        "Il a décelé quelques petits problèmes avec la porte et a fait les ajustements nécessaires pour les régler. " +
+        "Il a remplacé le caoutchouc du bas sur le champ car l’autre est devenu raide et aplati. " +
+        "La porte est plus silencieuse maintenant et ouvre / ferme avec moins d’effort du moteur.",
+    },
+    {
+      prenom: "Michel M.",
+      ville: "",
+      etoiles: 5,
+      texte:
+        "Excellent service par des gens compétents et respectueux. Travail rapide et propre. " +
+        "Explications claires. Prix très raisonnables. Je les recommande absolument.",
+    },
+    {
+      prenom: "Mélanie R.",
+      ville: "",
+      etoiles: 5,
+      texte: "Bon service, courtois, minutieux et prend le temps de nous expliquer.",
+    },
+    {
+      prenom: "Jocelyne B.",
+      ville: "",
+      etoiles: 5,
+      texte: "Très bon service, rapide et courtois, professionnel. Je recommande fortement.",
+    },
+    {
+      prenom: "Eric L.",
+      ville: "",
+      etoiles: 5,
+      texte: "",
+    },
+    {
+      prenom: "Sylvie-Anne T.",
+      ville: "",
+      etoiles: 5,
+      texte: "Super service, rapide et efficace et ils sont super gentils",
+    },
+    {
+      prenom: "Denny C.",
+      ville: "",
+      etoiles: 5,
+      texte:
+        "Excellent service! Courtois, professionnel et fiable, Lambert a pu évaluer le problème le jour même " +
+        "et m'offrir une solution temporaire pour faire fonctionner la porte de garage. " +
+        "Le problème a été réparé la semaine suivante! Merci! Je suis impressionné par la qualité du service.",
+    },
     {
       prenom: "Mathieu",
       ville: "",

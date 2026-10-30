@@ -128,6 +128,55 @@ create table if not exists inventaire (
   created_at timestamptz not null default now()
 );
 
+-- Provenance des clients (oct. 2026, lib/suivi.ts). Idempotent : on peut recoller
+-- tout le fichier sur une base existante. Aucune valeur devinée pour les anciens clients.
+alter table clients add column if not exists source text
+  check (source in ('google', 'meta', 'organic', 'direct', 'unknown'));
+alter table clients add column if not exists utm_source text;
+alter table clients add column if not exists utm_medium text;
+alter table clients add column if not exists utm_campaign text;
+alter table clients add column if not exists gclid text;
+alter table clients add column if not exists fbclid text;
+alter table clients add column if not exists landing_page text;
+alter table clients add column if not exists first_seen_at timestamptz;
+alter table clients add column if not exists tracking_number text;  -- ligne Twilio du premier appel
+-- Les 10 chiffres du numéro : Twilio et Meta envoient +14505551234, les formulaires gardent ce qui est tapé.
+alter table clients add column if not exists telephone_chiffres text
+  generated always as (right(regexp_replace(telephone, '\D', '', 'g'), 10)) stored;
+
+-- Le premier contact gagne : une fois la source connue, un appel ou un formulaire
+-- plus tard ne la remplace pas (les upserts du site passent tous par ici).
+create or replace function garder_premiere_source() returns trigger language plpgsql as $$
+begin
+  if old.source is not null and old.source <> 'unknown' then
+    new.source := old.source;
+    new.utm_source := old.utm_source;
+    new.utm_medium := old.utm_medium;
+    new.utm_campaign := old.utm_campaign;
+    new.gclid := old.gclid;
+    new.fbclid := old.fbclid;
+    new.landing_page := old.landing_page;
+    new.first_seen_at := old.first_seen_at;
+    new.tracking_number := old.tracking_number;
+  end if;
+  return new;
+end $$;
+create or replace trigger clients_premiere_source
+  before update on clients for each row execute function garder_premiere_source();
+
+-- Chaque contact entrant : appels Twilio et formulaires Meta
+create table if not exists lead_events (
+  id uuid primary key default gen_random_uuid(),
+  client_id uuid references clients(id) on delete cascade,
+  type text not null,               -- appel | meta_formulaire
+  source text,                      -- provenance de CE contact (la fiche garde la première)
+  tracking_number text,             -- ligne Twilio composée
+  duree_s integer,
+  appel_qualifie boolean generated always as (duree_s >= 60) stored,  -- 60 s+, comme la conversion Google
+  ref_externe text unique,          -- CallSid Twilio ou leadgen_id Meta : un webhook rejoué n'ajoute rien
+  created_at timestamptz not null default now()
+);
+
 -- Index pour les requêtes du CRM
 create index if not exists idx_rendez_vous_client on rendez_vous(client_id);
 create index if not exists idx_jobs_client on jobs(client_id);
@@ -135,6 +184,8 @@ create index if not exists idx_jobs_date on jobs(date);
 create index if not exists idx_factures_client on factures(client_id);
 create index if not exists idx_soumissions_crm_client on soumissions_crm(client_id);
 create index if not exists idx_notes_client_client on notes_client(client_id);
+create index if not exists idx_clients_telephone_chiffres on clients(telephone_chiffres);
+create index if not exists idx_lead_events_client on lead_events(client_id);
 
 -- Le code serveur utilise la clé service_role (qui contourne RLS).
 -- On active RLS sans policy : la clé publique anon ne peut donc rien lire/écrire.
@@ -147,3 +198,4 @@ alter table factures enable row level security;
 alter table notes_client enable row level security;
 alter table checklists enable row level security;
 alter table inventaire enable row level security;
+alter table lead_events enable row level security;

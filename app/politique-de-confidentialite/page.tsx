@@ -76,6 +76,12 @@ export default function PolitiqueConfidentialite() {
           Notre site utilise des témoins (cookies) de Google pour savoir si une annonce a mené à un appel ou à une
           demande. Vous pouvez les bloquer dans les réglages de votre navigateur; le site continue de fonctionner.
         </p>
+        <p>
+          Nous utilisons aussi nos propres témoins (eg_ft et eg_n, 90 jours) pour savoir comment vous nous avez trouvés :
+          annonce Google, Facebook ou Instagram, ou autrement. Ils retiennent la page d’arrivée et les paramètres du lien
+          suivi (utm, gclid, fbclid), et le numéro de téléphone affiché en dépend. Si vous nous écrivez ou nous appelez,
+          cette provenance est notée à votre dossier. Ces témoins ne sont transmis à aucun tiers.
+        </p>
       </Section>
 
       <Section titre="Combien de temps nous les gardons">

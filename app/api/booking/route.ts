@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { sendBookingEmails } from "@/lib/notifications";
 import type { GeneralBookingPayload } from "@/lib/notifications";
 import { saveBookingToDb } from "@/lib/db";
+import { attributionDuCookie } from "@/lib/suivi";
 
 const SERVICE_LABELS: Record<string, string> = {
   "reparation-porte": "Réparation de porte de garage",
@@ -34,7 +35,7 @@ export async function POST(req: Request) {
     };
 
     if (process.env.SUPABASE_URL) {
-      try { await saveBookingToDb(payload); } catch (err) { console.error("[booking] supabase error:", err); }
+      try { await saveBookingToDb(payload, attributionDuCookie(req.headers.get("cookie"))); } catch (err) { console.error("[booking] supabase error:", err); }
     }
     await sendBookingEmails(payload);
     return NextResponse.json({ success: true });

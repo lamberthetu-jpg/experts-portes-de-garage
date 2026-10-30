@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import BadgeSource from "@/components/BadgeSource";
+import type { Source } from "@/lib/suivi";
 
 const MOT_DE_PASSE = "l1a2m3B5";
 
@@ -16,6 +18,7 @@ interface Client {
   statut: string;
   montant_estime: number | null;
   created_at: string;
+  source?: Source | null;
 }
 
 interface TimelineItem {
@@ -197,6 +200,7 @@ export default function ClientDetailPage() {
                 <div className="flex items-center gap-2 text-white/25 text-xs">
                   Client depuis {formatDate(client.created_at)}
                 </div>
+                <BadgeSource source={client.source} />
               </div>
             </div>
 

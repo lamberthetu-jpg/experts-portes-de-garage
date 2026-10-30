@@ -3,6 +3,7 @@ import { sendBookingEmails } from "@/lib/notifications";
 import { generateQuotePdf, generateQuoteNum } from "@/lib/quote-pdf";
 import type { WeatherSealBookingPayload } from "@/lib/notifications";
 import { saveWeatherSealBookingToDb } from "@/lib/db";
+import { attributionDuCookie } from "@/lib/suivi";
 
 export async function POST(req: Request) {
   try {
@@ -32,7 +33,7 @@ export async function POST(req: Request) {
     };
 
     if (process.env.SUPABASE_URL) {
-      try { await saveWeatherSealBookingToDb(payload); } catch (err) { console.error("[booking-coupe-froid] supabase error:", err); }
+      try { await saveWeatherSealBookingToDb(payload, attributionDuCookie(req.headers.get("cookie"))); } catch (err) { console.error("[booking-coupe-froid] supabase error:", err); }
     }
     let pdfBuffer: Buffer | undefined;
     if (wantQuote && quoteNum) {

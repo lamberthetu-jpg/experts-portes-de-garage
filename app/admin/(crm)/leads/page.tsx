@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import BadgeSource from "@/components/BadgeSource";
+import type { Source } from "@/lib/suivi";
 
 const MOT_DE_PASSE = "l1a2m3B5";
 
@@ -21,6 +23,7 @@ interface Client {
   date_rappel: string | null;
   montant_estime: number | null;
   created_at: string;
+  source?: Source | null;
 }
 
 const STATUT_LABELS: Record<StatutLead, string> = {
@@ -391,6 +394,7 @@ export default function LeadsPage() {
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2 min-w-0">
                           <Link href={`/admin/clients/${client.id}`} className="font-bold text-white text-base truncate hover:text-red-400 transition-colors">{client.nom}</Link>
+                          <BadgeSource source={client.source} />
                           {client.montant_estime != null && <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full shrink-0">{client.montant_estime.toLocaleString("fr-CA", { style: "currency", currency: "CAD", maximumFractionDigits: 0 })}</span>}
                           <span className="text-xs text-white/20 shrink-0">{formatDate(client.created_at)}</span>
                         </div>

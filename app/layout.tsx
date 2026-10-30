@@ -12,6 +12,8 @@ import { Analytics } from "@vercel/analytics/next";
 import ClickTracker from "@/components/ClickTracker";
 import GoogleTag from "@/components/GoogleTag";
 import NumeroSuivi from "@/components/NumeroSuivi";
+import Script from "next/script";
+import { numerosSuivi, SCRIPT_CAPTURE } from "@/lib/suivi";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800"],
@@ -58,6 +60,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const numeros = numerosSuivi();
   return (
     <html lang="fr" className={`${poppins.variable} ${anton.variable} antialiased`}>
       <head>
@@ -67,6 +70,8 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col min-h-screen" suppressHydrationWarning>
+        {/* Provenance du visiteur, avant React et avant la balise Google (lib/suivi.ts). */}
+        <Script id="provenance" strategy="beforeInteractive">{SCRIPT_CAPTURE}</Script>
         <BookingModalProvider>
           <ConditionalHeader />
           <main className="flex-1">{children}</main>
@@ -74,8 +79,8 @@ export default function RootLayout({
           <SpeedInsights />
           <Analytics />
           <ClickTracker />
-          <GoogleTag />
-          <NumeroSuivi />
+          <GoogleTag numeros={numeros} />
+          <NumeroSuivi numeros={numeros} />
         </BookingModalProvider>
       </body>
     </html>

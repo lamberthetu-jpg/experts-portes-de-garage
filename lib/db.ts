@@ -1,5 +1,6 @@
 import { getSupabase } from "./supabase";
 import type { GeneralBookingPayload, WeatherSealBookingPayload } from "./notifications";
+import { chiffresTel, formatTel, type Attribution } from "./suivi";
 
 const PRICE_PER_FOOT: Record<string, number> = {
   bas: 5,
@@ -23,7 +24,7 @@ async function upsertClient(data: {
   adresse: string;
   ville: string;
   codePostal: string;
-}): Promise<string> {
+}, attribution: Attribution | null): Promise<string> {
   const { data: client, error } = await getSupabase()
     .from("clients")
     .upsert(
@@ -34,6 +35,7 @@ async function upsertClient(data: {
         adresse: data.adresse,
         ville: data.ville,
         code_postal: data.codePostal,
+        ...attribution,
       },
       { onConflict: "telephone" }
     )
@@ -44,8 +46,8 @@ async function upsertClient(data: {
   return client.id;
 }
 
-export async function saveBookingToDb(data: GeneralBookingPayload): Promise<void> {
-  const clientId = await upsertClient(data);
+export async function saveBookingToDb(data: GeneralBookingPayload, attribution: Attribution | null): Promise<void> {
+  const clientId = await upsertClient(data, attribution);
 
   // La date/heure n'est plus choisie par le client : le rendez-vous est planifié
   // par téléphone après la demande.
@@ -58,8 +60,8 @@ export async function saveBookingToDb(data: GeneralBookingPayload): Promise<void
   if (error) throw error;
 }
 
-export async function saveWeatherSealBookingToDb(data: WeatherSealBookingPayload): Promise<void> {
-  const clientId = await upsertClient(data);
+export async function saveWeatherSealBookingToDb(data: WeatherSealBookingPayload, attribution: Attribution | null): Promise<void> {
+  const clientId = await upsertClient(data, attribution);
 
   const { data: rdv, error: rdvError } = await getSupabase()
     .from("rendez_vous")
@@ -103,4 +105,64 @@ export async function saveWeatherSealBookingToDb(data: WeatherSealBookingPayload
 
     if (soumError) throw soumError;
   }
+}
+
+export interface LeadEvent {
+  type: "appel" | "meta_formulaire";
+  /** CallSid ou leadgen_id : un webhook rejoué n'ajoute rien. */
+  ref_externe: string;
+  tracking_number?: string | null;
+  duree_s?: number | null;
+}
+
+/**
+ * Lead entré par un appel Twilio ou un formulaire Meta. Le numéro arrive en
+ * +14505551234 alors que les formulaires du site gardent ce que le client a
+ * tapé : on cherche donc la fiche par ses 10 chiffres. Fiche existante : on
+ * ne touche qu'aux champs vides et la provenance du premier contact est
+ * protégée par le déclencheur garder_premiere_source (supabase/schema.sql).
+ */
+export async function enregistrerLead(
+  fiche: { telephone: string; nom?: string | null; courriel?: string | null; adresse?: string | null; ville?: string | null; code_postal?: string | null },
+  attribution: Partial<Attribution> & { source: Attribution["source"]; tracking_number?: string | null },
+  evenement: LeadEvent
+): Promise<string | null> {
+  const chiffres = chiffresTel(fiche.telephone);
+  if (!chiffres) return null;
+  const sb = getSupabase();
+
+  const { data: existant, error: e1 } = await sb
+    .from("clients")
+    .select("id, nom, courriel, adresse, ville, code_postal")
+    .eq("telephone_chiffres", chiffres)
+    .order("created_at")
+    .limit(1)
+    .maybeSingle();
+  if (e1) throw e1;
+
+  let clientId: string;
+  if (existant) {
+    clientId = existant.id;
+    const vides = Object.fromEntries(
+      (["nom", "courriel", "adresse", "ville", "code_postal"] as const)
+        .filter((k) => fiche[k] && !existant[k])
+        .map((k) => [k, fiche[k]])
+    );
+    const { error } = await sb.from("clients").update({ ...vides, ...attribution }).eq("id", clientId);
+    if (error) throw error;
+  } else {
+    const { data, error } = await sb
+      .from("clients")
+      .insert({ ...fiche, nom: fiche.nom || `Appel ${formatTel(chiffres)}`, telephone: formatTel(chiffres), ...attribution })
+      .select("id")
+      .single();
+    if (error) throw error;
+    clientId = data.id;
+  }
+
+  const { error } = await sb
+    .from("lead_events")
+    .upsert({ client_id: clientId, source: attribution.source, ...evenement }, { onConflict: "ref_externe", ignoreDuplicates: true });
+  if (error) throw error;
+  return clientId;
 }

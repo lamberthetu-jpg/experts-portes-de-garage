@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { getSupabase } from "@/lib/supabase";
+import { provenanceDuCookie } from "@/lib/suivi";
+import { envoyerAVitryne } from "@/lib/vitryne";
 
 /**
  * Formulaire court de la page /reparation-porte-garage-granby
@@ -9,7 +11,9 @@ import { getSupabase } from "@/lib/supabase";
  */
 export async function POST(req: Request) {
   try {
-    const { nom, telephone, probleme, source, annonce } = await req.json();
+    const { nom, telephone, probleme, source } = await req.json();
+    // Provenance du premier passage (témoin eg_ft, lib/suivi.ts).
+    const annonce = provenanceDuCookie(req.headers.get("cookie"))?.source === "google";
     // Page d'origine, liste fermée (jamais de texte libre du client dans le courriel).
     const page = PAGES[source as keyof typeof PAGES] ?? PAGES.granby;
 
@@ -38,12 +42,19 @@ export async function POST(req: Request) {
       }
     }
 
+    // Au CRM de Lambert (Vitryne), avec la provenance : il reçoit un texto.
+    // Si Vitryne ne la prend pas, le courriel d'avant part comme toujours.
+    const cle = typeof source === "string" && Object.hasOwn(PAGES, source) ? source : "granby";
+    if (await envoyerAVitryne(req, { nom: propre.nom, telephone: propre.telephone, message: propre.probleme || undefined, service: `rappel, page ${page}`, page: cle })) {
+      return NextResponse.json({ success: true });
+    }
+
     const resend = new Resend(process.env.RESEND_API_KEY!);
     const { error } = await resend.emails.send({
       from: `Experts Portes de Garage <${process.env.RESEND_FROM_EMAIL!}>`,
       to: [process.env.OWNER_EMAIL!],
       replyTo: process.env.OWNER_EMAIL!,
-      subject: `Demande de rappel${annonce === true ? " (annonce Google)" : ""} — ${propre.nom} — ${propre.telephone}`,
+      subject: `Demande de rappel${annonce ? " (annonce Google)" : ""} — ${propre.nom} — ${propre.telephone}`,
       html: `
         <div style="font-family:system-ui,sans-serif;max-width:560px">
           <h2 style="color:#cc0000;margin:0 0 16px">Nouvelle demande de rappel</h2>
@@ -56,7 +67,7 @@ export async function POST(req: Request) {
             escapeHtml(propre.probleme) || "(rien d'écrit)"
           }</p>
           <p style="margin:20px 0 0;color:#666;font-size:13px">
-            Reçu par la page ${page}.${annonce === true ? " <strong>Provenance : annonce Google.</strong>" : ""}
+            Reçu par la page ${page}.${annonce ? " <strong>Provenance : annonce Google.</strong>" : ""}
           </p>
         </div>
       `,

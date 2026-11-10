@@ -54,7 +54,7 @@ export const LANDING = {
   },
 
   /**
-   * Vrais avis Google seulement (fiche relue le 29 oct. 2026 : 23 avis, 5,0/5).
+   * Vrais avis Google seulement (fiche relue le 10 nov. 2026 : 30 avis, 5,0/5).
    * Plus récent en premier. Un avis sans texte (étoiles seulement) a texte vide :
    * il compte dans la note mais n'a pas de carte.
    * Prénom + initiale, pas de ville (les avis Google ne la donnent pas).
@@ -62,6 +62,51 @@ export const LANDING = {
    * N'invente jamais d'avis : c'est illégal et ça se retourne contre toi.
    */
   avis: [
+    {
+      prenom: "Bryan",
+      ville: "",
+      etoiles: 5,
+      texte: "Bon service, courtois, connaissant et travail proprement. Je le recommande",
+    },
+    {
+      prenom: "Marcel C.",
+      ville: "",
+      etoiles: 5,
+      texte:
+        "Très satisfait des travaux effectués par Experts Portes de Garage. J'ai eu plusieurs prix d'autres installateurs " +
+        "et Lambert a fait les réparations à bien meilleur prix et ce avec courtoisie et professionnalisme. " +
+        "Ma porte est comme une neuve. Merci, je le recommande",
+    },
+    {
+      prenom: "Luc-Olivier B.",
+      ville: "",
+      etoiles: 5,
+      texte: "Service rapide et courtois! Good job les boys !",
+    },
+    {
+      prenom: "Hugo C.",
+      ville: "",
+      etoiles: 5,
+      texte: "Très bon service!!!",
+    },
+    {
+      prenom: "Roger R.",
+      ville: "",
+      etoiles: 5,
+      texte: "Travail efficace et exécution professionnelle !",
+    },
+    {
+      prenom: "Nicole P.",
+      ville: "",
+      etoiles: 5,
+      texte: "",
+    },
+    {
+      prenom: "Léa R.",
+      ville: "",
+      etoiles: 5,
+      texte: "Service rapide et courtois!",
+    },
     {
       prenom: "Louis R.",
       ville: "",

@@ -294,7 +294,8 @@ export async function sendReviewEmail(nom: string, courriel: string): Promise<vo
 
 // ── Resend ────────────────────────────────────────────────────────────────
 
-export async function sendBookingEmails(data: BookingPayload, pdfBuffer?: Buffer): Promise<void> {
+/** `avertirLambert` : faux quand Vitryne a déjà pris la demande (lib/vitryne.ts) — le client reçoit quand même son courriel. */
+export async function sendBookingEmails(data: BookingPayload, pdfBuffer?: Buffer, avertirLambert = true): Promise<void> {
   const resend = new Resend(process.env.RESEND_API_KEY!);
   const from = `Experts Portes de Garage <${process.env.RESEND_FROM_EMAIL!}>`;
   const clientEmail: Parameters<typeof resend.emails.send>[0] = {
@@ -311,12 +312,13 @@ export async function sendBookingEmails(data: BookingPayload, pdfBuffer?: Buffer
     }];
   }
   await Promise.all([
-    sendOrThrow(resend, {
-      from,
-      to: [process.env.OWNER_EMAIL!],
-      subject: `Nouvelle demande — ${data.serviceType} — ${data.nom}`,
-      html: buildOwnerEmailHtml(data),
-    }),
+    avertirLambert &&
+      sendOrThrow(resend, {
+        from,
+        to: [process.env.OWNER_EMAIL!],
+        subject: `Nouvelle demande — ${data.serviceType} — ${data.nom}`,
+        html: buildOwnerEmailHtml(data),
+      }),
     sendOrThrow(resend, clientEmail),
   ]);
 }

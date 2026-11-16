@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { sendBookingEmails } from "@/lib/notifications";
+import { sendBookingEmails, resumeDemandeTexte } from "@/lib/notifications";
+import { envoyerAVitryne } from "@/lib/vitryne";
 import { generateQuotePdf, generateQuoteNum } from "@/lib/quote-pdf";
 import type { WeatherSealBookingPayload } from "@/lib/notifications";
 import { saveWeatherSealBookingToDb } from "@/lib/db";
@@ -38,7 +39,10 @@ export async function POST(req: Request) {
     if (wantQuote && quoteNum) {
       try { pdfBuffer = await generateQuotePdf(payload, quoteNum); } catch (err) { console.error("[booking-coupe-froid] quote pdf error:", err); }
     }
-    await sendBookingEmails(payload, pdfBuffer);
+    await Promise.all([
+      sendBookingEmails(payload, pdfBuffer),
+      envoyerAVitryne({ nom, telephone, courriel, adresse, ville, codePostal, service: payload.serviceType, message: resumeDemandeTexte(payload), page: "Coupe-froid" }),
+    ]);
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("[booking-coupe-froid] error:", err);

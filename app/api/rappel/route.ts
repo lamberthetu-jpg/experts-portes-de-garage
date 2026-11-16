@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { getSupabase } from "@/lib/supabase";
+import { envoyerAVitryne } from "@/lib/vitryne";
 
 /**
  * Formulaire court de la page /reparation-porte-garage-granby
@@ -38,6 +39,16 @@ export async function POST(req: Request) {
       }
     }
 
+    // Dans Vitryne aussi (16 nov. 2026), en même temps que le courriel.
+    const versVitryne = envoyerAVitryne({
+      nom: propre.nom,
+      telephone: propre.telephone,
+      service: "Demande de rappel",
+      message: propre.probleme || null,
+      page,
+      annonceGoogle: annonce === true,
+    });
+
     const resend = new Resend(process.env.RESEND_API_KEY!);
     const { error } = await resend.emails.send({
       from: `Experts Portes de Garage <${process.env.RESEND_FROM_EMAIL!}>`,
@@ -62,6 +73,7 @@ export async function POST(req: Request) {
       `,
     });
 
+    await versVitryne;
     if (error) {
       console.error("[rappel] resend:", error);
       return NextResponse.json({ error: "Envoi impossible" }, { status: 502 });

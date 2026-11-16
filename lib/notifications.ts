@@ -86,6 +86,28 @@ function isWeatherSealPayload(data: BookingPayload): data is WeatherSealBookingP
   return "seals" in data && Array.isArray((data as WeatherSealBookingPayload).seals);
 }
 
+/**
+ * Les détails d'une demande de coupe-froid en texte, pour Vitryne (16 nov.
+ * 2026) : les mêmes infos que le courriel, sans HTML.
+ */
+export function resumeDemandeTexte(data: BookingPayload): string {
+  if (!isWeatherSealPayload(data)) return "";
+  const ws = data;
+  const morceaux: string[] = [];
+  const mesures = ws.seals
+    .filter((s) => s !== "inconnu")
+    .map((s) => `${SEAL_LABELS[s] || s}${ws.measurements[s] ? ` ${ws.measurements[s]} pi` : ""}`);
+  if (mesures.length) morceaux.push(mesures.join(", "));
+  if (ws.seals.includes("inconnu")) morceaux.push("Inspection complète demandée");
+  if (ws.color) morceaux.push(`Couleur : ${ws.color}`);
+  if (ws.condition) morceaux.push(`État : ${CONDITION_LABELS[ws.condition] || ws.condition}`);
+  const total = calcTotal(ws.seals, ws.measurements);
+  if (total > 0) morceaux.push(`Estimation donnée par le site : ${total.toFixed(2).replace(".", ",")} $`);
+  if (ws.notes) morceaux.push(`Notes du client : ${ws.notes}`);
+  if (ws.quoteNum) morceaux.push(`Soumission PDF n° ${ws.quoteNum}`);
+  return morceaux.join(". ");
+}
+
 export function buildOwnerEmailHtml(data: BookingPayload): string {
   const ws = isWeatherSealPayload(data) ? data : null;
   const total = ws ? calcTotal(ws.seals, ws.measurements) : 0;

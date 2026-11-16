@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { sendBookingEmails } from "@/lib/notifications";
+import { envoyerAVitryne } from "@/lib/vitryne";
 import type { GeneralBookingPayload } from "@/lib/notifications";
 import { saveBookingToDb } from "@/lib/db";
 
@@ -36,7 +37,10 @@ export async function POST(req: Request) {
     if (process.env.SUPABASE_URL) {
       try { await saveBookingToDb(payload); } catch (err) { console.error("[booking] supabase error:", err); }
     }
-    await sendBookingEmails(payload);
+    await Promise.all([
+      sendBookingEmails(payload),
+      envoyerAVitryne({ nom, telephone, courriel, adresse, ville, codePostal, service: payload.serviceType, page: "Prise de rendez-vous" }),
+    ]);
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("[booking] error:", err);

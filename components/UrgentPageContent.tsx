@@ -9,7 +9,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import FaqAccordion from "@/components/FaqAccordion";
 
 const faqItems = [
-  { q: "Ça coûte combien?", a: "Appelez-nous pour un devis gratuit. On évalue la situation et on vous donne un prix clair avant de commencer quoi que ce soit." },
+  { q: "Ça coûte combien?", a: "La sortie d'urgence est à 400 $, première heure sur place comprise, ensuite 170 $/h. Si votre porte peut attendre à demain, vous payez seulement le taux horaire normal. Je vous donne le prix des pièces avant de commencer." },
   { q: "Vous venez vraiment le jour même?", a: "Oui, c'est notre engagement. On se déplace le jour même pour les urgences dans notre zone de service." },
   { q: "Vous travaillez la nuit?", a: "Oui, on est disponible 24h/24, 7 jours/7. Une urgence n'attend pas les heures d'ouverture." },
 ];
@@ -69,13 +69,13 @@ export default function UrgentPageContent() {
 
             {/* Left */}
             <div className="flex-1 text-center lg:text-left">
-              <nav className="text-sm text-white/60 mb-5 flex items-center gap-2 justify-center lg:justify-start reveal">
+              <nav className="text-sm text-white/60 mb-5 flex items-center gap-2 justify-center lg:justify-start">
                 <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
                 <span>/</span>
                 <span className="text-white/80">Réparation urgente</span>
               </nav>
 
-              <div className="reveal d1 inline-flex items-center gap-2 bg-brand/20 border border-brand/40 text-brand rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest mb-5">
+              <div className="inline-flex items-center gap-2 bg-brand/20 border border-brand/40 text-brand rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest mb-5">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand" />
@@ -83,17 +83,17 @@ export default function UrgentPageContent() {
                 Urgence 24/7
               </div>
 
-              <h1 className="reveal d2 font-heading text-3xl md:text-5xl text-white uppercase leading-tight mb-4">
+              <h1 className="font-heading text-3xl md:text-5xl text-white uppercase leading-tight mb-4">
                 Porte de Garage Bloquée?{" "}
                 <span className="text-brand">On Arrive Aujourd&apos;hui!</span>
               </h1>
-              <p className="reveal d3 text-white/70 text-base md:text-lg mb-8 max-w-xl mx-auto lg:mx-0">
+              <p className="text-white/70 text-base md:text-lg mb-8 max-w-xl mx-auto lg:mx-0">
                 Service d&apos;urgence 24/7 — Intervention le jour même en Estrie et Montérégie.
               </p>
               <a
                 href={PHONE_HREF}
                 data-cta="hero"
-                className="reveal d4 inline-flex items-center gap-3 bg-brand text-white font-heading text-lg md:text-xl px-8 py-4 rounded-xl hover:bg-brand-dark transition-colors shadow-lg shadow-brand/30 uppercase tracking-wide"
+                className="inline-flex items-center gap-3 bg-brand text-white font-heading text-lg md:text-xl px-8 py-4 rounded-xl hover:bg-brand-dark transition-colors shadow-lg shadow-brand/30 uppercase tracking-wide"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.18 21 3 13.82 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" />
@@ -103,7 +103,7 @@ export default function UrgentPageContent() {
             </div>
 
             {/* Right — booking card */}
-            <div className="reveal d3 w-full lg:min-w-[380px] lg:w-[380px] shrink-0">
+            <div className="w-full lg:min-w-[380px] lg:w-[380px] shrink-0">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl" style={{background: "linear-gradient(160deg, #1c1c1c 0%, #0d0d0d 100%)"}}>
 
                 {/* Top red glow */}
@@ -167,7 +167,7 @@ export default function UrgentPageContent() {
 
                   {/* Body text */}
                   <p className="text-white/50 text-sm leading-relaxed mb-6">
-                    Choisissez le moment qui vous convient — nos techniciens se déplacent chez vous rapidement.
+                    Choisissez le moment qui vous convient — je me déplace chez vous rapidement.
                   </p>
 
                   {/* CTA */}

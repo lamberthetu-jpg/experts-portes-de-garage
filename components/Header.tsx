@@ -34,7 +34,7 @@ export default function Header() {
       <div className="hidden lg:block bg-brand text-white">
         <div className="max-w-7xl mx-auto px-6 py-1.5 flex items-center justify-between text-xs font-medium">
           <span>Service d&apos;urgence 24/7 — Granby &amp; régions</span>
-          <a href={PHONE_HREF} className="hover:underline font-bold">
+          <a href={PHONE_HREF} data-cta="barre_urgence" className="hover:underline font-bold">
             {PHONE_DISPLAY}
           </a>
         </div>
@@ -117,6 +117,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <a
             href={PHONE_HREF}
+            data-cta="entete"
             className="inline-flex lg:hidden items-center bg-brand text-white text-sm font-bold px-4 py-2 rounded-lg hover:bg-brand-dark transition-colors"
           >
             {PHONE_DISPLAY}
@@ -196,6 +197,7 @@ export default function Header() {
             </button>
             <a
               href={PHONE_HREF}
+              data-cta="menu_mobile"
               className="border-2 border-brand text-brand text-sm font-bold px-5 py-3 rounded-lg text-center hover:bg-brand hover:text-white transition-colors"
             >
               {PHONE_DISPLAY}

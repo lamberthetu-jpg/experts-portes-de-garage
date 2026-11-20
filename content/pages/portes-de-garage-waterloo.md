@@ -44,9 +44,9 @@ Desservez-vous les secteurs autour de Waterloo?
 
 Oui. Nous couvrons Waterloo et les environs : Shefford, Bromont, Granby, Saint-Alphonse-de-Granby et toute la Haute-Yamaska.
 
-Offrez-vous un devis gratuit à Waterloo?
+Combien coûte une réparation à Waterloo?
 
-Absolument. Nous évaluons la situation sur place et vous donnons un prix clair avant de commencer — sans frais d'appel de service si vous acceptez la soumission.
+Le taux horaire est de 170 $/h (minimum 125 $), et je vous donne le prix des pièces avant de commencer. Pour une urgence (porte bloquée, auto prise), la sortie est à 400 $, première heure comprise; si ça peut attendre à demain, c'est le taux normal.
 
 Ma porte fait un bruit de claquement — est-ce dangereux?
 

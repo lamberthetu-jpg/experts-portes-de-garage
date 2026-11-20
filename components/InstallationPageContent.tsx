@@ -220,14 +220,14 @@ export default function InstallationPageContent() {
             <span className="text-white/70">Installation de porte</span>
           </nav>
           <p className="reveal text-brand font-bold text-sm uppercase tracking-widest mb-3">Service professionnel</p>
-          <h1 className="reveal d1 font-heading text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight mb-5">
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight mb-5">
             Installer une nouvelle<br />
             <span className="text-brand">porte de garage</span>
           </h1>
-          <p className="reveal d2 text-white/70 text-lg leading-relaxed max-w-xl mb-10">
+          <p className="text-white/70 text-lg leading-relaxed max-w-xl mb-10">
             Modernisez votre garage — sécurité améliorée, économies d&apos;énergie et confort au quotidien. Devis gratuit, sans obligation.
           </p>
-          <div className="reveal d3 flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <PlanifierButton className="bg-brand text-white font-heading text-base uppercase px-8 py-4 rounded-xl hover:bg-brand-dark transition-colors shadow-lg shadow-brand/20 tracking-wide">
               Demander un devis gratuit
             </PlanifierButton>

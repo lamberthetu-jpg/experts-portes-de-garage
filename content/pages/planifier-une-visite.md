@@ -14,7 +14,7 @@ _intervention_
 
 Service rapide, technicien local. Remplissez la demande en 2 minutes.
 
-Prendre un rendez-vous Service garanti Granby & régions Devis gratuit Réponse 24h Étape 1 sur 3
+Prendre un rendez-vous Service garanti Granby & régions Prix clairs Réponse 24h Étape 1 sur 3
 
 ## Vos coordonnées
 

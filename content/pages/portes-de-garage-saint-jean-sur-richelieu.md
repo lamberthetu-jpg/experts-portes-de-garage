@@ -5,7 +5,7 @@ date: "2026-04-05"
 status: "publish"
 type: "page"
 link: "https://expertsportesdegarage.ca/portes-de-garage-saint-jean-sur-richelieu/"
-excerpt: "Réparation et installation de portes de garage à Saint-Jean-sur-Richelieu. Disponibles 7j/7, devis gratuit. Appelez le 438-808-9604."
+excerpt: "Réparation et installation de portes de garage à Saint-Jean-sur-Richelieu. 7j/7, urgence 24/7, prix clairs. Appelez le 438-808-9604."
 ---
 
 ## RÉPARATION ET INSTALLATION DE PORTES DE GARAGE À SAINT-JEAN-SUR-RICHELIEU
@@ -35,7 +35,7 @@ Planifier maintenant [438-808-9604](tel:4388089604)
 Saint-Jean est une ville où le bouche-à-oreille compte. Nos clients reviennent nous voir et nous recommandent parce que nous faisons le travail correctement du premier coup. Pas de survente, pas de diagnostic inutile, pas de frais cachés.
 
 - Disponibles **7 jours sur 7**
-- **Devis gratuit** avant tout travail
+- **Prix donné** avant tout travail
 - Techniciens **formés et expérimentés**
 - **Garantie** sur toutes les réparations
 - Intervention possible **le jour même**

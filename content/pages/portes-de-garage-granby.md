@@ -5,7 +5,7 @@ date: "2026-04-05"
 status: "publish"
 type: "page"
 link: "https://expertsportesdegarage.ca/portes-de-garage-granby/"
-excerpt: "Service local de réparation et installation de portes de garage à Granby. Intervention rapide, techniciens qualifiés, devis gratuit. Appelez le 438-808-9604."
+excerpt: "Service local de réparation et installation de portes de garage à Granby. Intervention rapide, urgence 24/7, prix clairs. Appelez le 438-808-9604."
 ---
 
 ## EXPERTS EN PORTES DE GARAGE À GRANBY — VOTRE SPÉCIALISTE LOCAL
@@ -48,7 +48,7 @@ Chez **Experts Portes de Garage**, vous parlez à un vrai technicien local, pas 
 **Nos engagements à Granby :**
 - Technicien local, vous connaissez nos camions dans les rues
 - Intervention souvent possible le jour même
-- Prix clairs et devis gratuit avant les travaux
+- Prix clairs, donnés avant les travaux
 - Garantie sur toutes les réparations et installations
 - Disponibles 7 jours sur 7
 
@@ -60,7 +60,7 @@ Oui. **Experts Portes de Garage** est une entreprise locale de Granby. Vous pouv
 
 Combien coûte une réparation de porte à Granby?
 
-Les prix varient selon le type de réparation. Un remplacement de ressort coûte généralement entre 250 $ et 450 $. Nous offrons toujours un **devis gratuit** avant de commencer. Aucune mauvaise surprise.
+Les prix varient selon le type de réparation. Un remplacement de ressort coûte généralement entre 250 $ et 450 $. Je vous donne toujours le prix avant de commencer. Pour une urgence (porte bloquée, auto prise), la sortie est à 400 $, première heure comprise; si ça peut attendre à demain, c'est le taux horaire normal. Aucune mauvaise surprise.
 
 Intervenez-vous en urgence à Granby?
 

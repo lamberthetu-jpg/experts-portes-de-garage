@@ -20,6 +20,11 @@ const SERVICE_SLUGS = [
   "reparation-urgente-de-porte-de-garage",
   "reparation-ouvre-porte-de-garage",
   "remplacement-coupe-froid-porte-de-garage",
+  // Pages d'atterrissage (annonces) : bâties dans app/, pas dans content/.
+  "reparation-ressort-porte-de-garage",
+  "urgence-porte-de-garage-nuit",
+  "reparation-porte-garage-granby",
+  "reparation-ouvre-porte-garage-granby",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ouvre-porte de Garage — Installation & Réparation",
     description:
-      "Installez ou réparez votre ouvre-porte de garage avec nos techniciens qualifiés. Devis gratuit, service rapide en Estrie et Montérégie.",
+      "Installez ou réparez votre ouvre-porte de garage avec un technicien qualifié. Prix clairs, service rapide en Estrie et Montérégie.",
     url: "/reparation-ouvre-porte-de-garage",
   },
 };

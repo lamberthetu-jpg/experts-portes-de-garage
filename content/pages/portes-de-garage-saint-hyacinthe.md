@@ -5,7 +5,7 @@ date: "2026-04-05"
 status: "publish"
 type: "page"
 link: "https://expertsportesdegarage.ca/portes-de-garage-saint-hyacinthe/"
-excerpt: "Réparation et installation de portes de garage à Saint-Hyacinthe. Techniciens locaux disponibles 7j/7, devis gratuit. Appelez le 438-808-9604."
+excerpt: "Réparation et installation de portes de garage à Saint-Hyacinthe. 7j/7, urgence 24/7, prix clairs. Appelez le 438-808-9604."
 ---
 
 ## RÉPARATION ET INSTALLATION DE PORTES DE GARAGE À SAINT-HYACINTHE
@@ -44,7 +44,7 @@ Chaque installation inclut une garantie sur les pièces et la main-d'œuvre.
 
 - Techniciens locaux qui connaissent la région maskoutaine
 - Disponibles 7 jours sur 7, weekends inclus
-- Devis gratuit, prix transparents, aucuns frais cachés
+- Prix transparents, donnés avant les travaux, aucuns frais cachés
 - Pièces de remplacement en stock dans notre véhicule
 - Réparation le jour même dans la majorité des cas
 

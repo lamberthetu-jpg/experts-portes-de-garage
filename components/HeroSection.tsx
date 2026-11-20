@@ -126,7 +126,7 @@ export default function HeroSection() {
               {/* Card footer */}
               <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
                 <p className="text-center text-xs text-gray-600 font-medium">
-                  Devis gratuit · Sans engagement · Réponse rapide
+                  Prix clair avant les travaux · Réponse rapide
                 </p>
               </div>
             </div>

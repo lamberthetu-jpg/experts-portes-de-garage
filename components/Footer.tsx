@@ -5,6 +5,9 @@ import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/config";
 
 const serviceLinks = [
   { href: "/reparation-urgente-de-porte-de-garage", label: "Réparation urgente 24/7" },
+  { href: "/reparation-ressort-porte-de-garage", label: "Ressort cassé" },
+  { href: "/urgence-porte-de-garage-nuit", label: "Urgence de nuit" },
+  { href: "/reparation-porte-garage-granby", label: "Réparation à Granby" },
   { href: "/installation-de-nouvelle-porte-de-garage", label: "Nouvelle installation" },
   { href: "/reparation-ouvre-porte-de-garage", label: "Ouvre-porte de garage" },
 ];
@@ -16,7 +19,7 @@ const companyLinks = [
 ];
 
 const blogLinks = [
-  { href: "/blog/ressort-porte-de-garage-brise", label: "Ressort brisé — quoi faire?" },
+  { href: "/blog/ressort-porte-de-garage-brise", label: "Ressort brisé : quoi faire?" },
   { href: "/blog/cout-reparation-porte-garage-quebec", label: "Prix des réparations 2026" },
   { href: "/blog/entretien-porte-garage-hiver-quebec", label: "Entretien hivernal" },
   { href: "/blog/signes-porte-garage-besoin-entretien", label: "7 signes d'usure urgents" },

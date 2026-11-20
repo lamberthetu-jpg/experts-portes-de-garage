@@ -209,7 +209,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 Besoin d&apos;un technicien?
               </p>
               <p className="text-gray-500 text-sm">
-                Intervention rapide en Estrie et Montérégie — devis gratuit.
+                Intervention rapide en Estrie et Montérégie, urgence 24/7.
               </p>
             </div>
             <div className="flex gap-3 shrink-0">

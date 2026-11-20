@@ -6,6 +6,9 @@ import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/config";
 const serviceLinks = [
   { href: "/reparation-urgente-de-porte-de-garage", label: "Réparation urgente 24/7" },
   { href: "/reparation-ressort-porte-de-garage", label: "Ressort cassé" },
+  { href: "/reparation-cable-porte-de-garage", label: "Câble cassé" },
+  { href: "/porte-de-garage-bloquee-auto-prise", label: "Auto prise dans le garage" },
+  { href: "/porte-de-garage-sortie-du-rail", label: "Porte sortie du rail" },
   { href: "/urgence-porte-de-garage-nuit", label: "Urgence de nuit" },
   { href: "/reparation-porte-garage-granby", label: "Réparation à Granby" },
   { href: "/installation-de-nouvelle-porte-de-garage", label: "Nouvelle installation" },

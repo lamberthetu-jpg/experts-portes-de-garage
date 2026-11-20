@@ -1,11 +1,11 @@
 ---
-title: "Réparation & Installation de Portes de Garage à Granby"
+title: "Réparation urgente de porte de garage à Granby"
 slug: "portes-de-garage-granby"
 date: "2026-04-05"
 status: "publish"
 type: "page"
 link: "https://expertsportesdegarage.ca/portes-de-garage-granby/"
-excerpt: "Service local de réparation et installation de portes de garage à Granby. Intervention rapide, urgence 24/7, prix clairs. Appelez le 438-808-9604."
+excerpt: "Porte de garage bloquée, ressort ou câble cassé à Granby? Je me déplace aujourd'hui, urgence 24/7. Réparation, ouvre-porte et installation. Appelez le 438-808-9604."
 ---
 
 ## EXPERTS EN PORTES DE GARAGE À GRANBY — VOTRE SPÉCIALISTE LOCAL

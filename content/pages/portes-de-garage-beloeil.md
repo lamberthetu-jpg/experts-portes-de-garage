@@ -1,11 +1,11 @@
 ---
-title: "Réparation & Installation de Portes de Garage à Beloeil"
+title: "Réparation urgente de porte de garage à Beloeil"
 slug: "portes-de-garage-beloeil"
 date: "2026-04-05"
 status: "publish"
 type: "page"
 link: "https://expertsportesdegarage.ca/portes-de-garage-beloeil/"
-excerpt: "Réparation et installation de portes de garage à Beloeil et McMasterville. 7j/7, urgence 24/7, prix clairs. Appelez le 438-808-9604."
+excerpt: "Porte de garage bloquée, ressort ou câble cassé à Beloeil? Je me déplace aujourd'hui, urgence 24/7. Réparation, ouvre-porte et installation. Appelez le 438-808-9604."
 ---
 
 ## RÉPARATION ET INSTALLATION DE PORTES DE GARAGE À BELOEIL

@@ -10,6 +10,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import FaqAccordion from "@/components/FaqAccordion";
 import { PHONE_DISPLAY, PHONE_HREF, BUSINESS_NAME, EMAIL } from "@/lib/config";
 import { pageSchema, jsonLdString } from "@/lib/schema";
+import BarreAppelMobile from "@/components/BarreAppelMobile";
 
 const BASE_URL = "https://www.expertsportesdegarage.ca";
 const HERO_BG = "/images/maison_garage_v1.png";
@@ -33,13 +34,26 @@ const CITY_IMAGES: Record<string, string> = {
 };
 
 const CITY_LINKS = [
-  { label: "Granby", slug: "portes-de-garage-granby" },
+  { label: "Granby", slug: "reparation-porte-garage-granby" },
+  { label: "Shefford", slug: "portes-de-garage-shefford" },
+  { label: "Roxton Pond", slug: "portes-de-garage-roxton-pond" },
+  { label: "Sutton", slug: "portes-de-garage-sutton" },
+  { label: "Saint-Césaire", slug: "portes-de-garage-saint-cesaire" },
   { label: "Saint-Hyacinthe", slug: "portes-de-garage-saint-hyacinthe" },
   { label: "Magog", slug: "portes-de-garage-magog" },
   { label: "Saint-Jean-sur-Richelieu", slug: "portes-de-garage-saint-jean-sur-richelieu" },
   { label: "Bromont", slug: "portes-de-garage-bromont" },
   { label: "Waterloo", slug: "portes-de-garage-waterloo" },
   { label: "Beloeil", slug: "portes-de-garage-beloeil" },
+];
+
+/** Pannes d'urgence, liées depuis chaque page de ville. */
+const PANNES = [
+  { label: "Ressort cassé", href: "/reparation-ressort-porte-de-garage" },
+  { label: "Câble cassé ou sorti", href: "/reparation-cable-porte-de-garage" },
+  { label: "Auto prise dans le garage", href: "/porte-de-garage-bloquee-auto-prise" },
+  { label: "Porte sortie du rail", href: "/porte-de-garage-sortie-du-rail" },
+  { label: "Urgence de nuit", href: "/urgence-porte-de-garage-nuit" },
 ];
 
 export async function generateStaticParams() {
@@ -53,13 +67,13 @@ export async function generateMetadata(
   const page = getPageBySlug(slug);
   if (!page) return {};
   return {
-    title: `${page.title} — Experts Portes de Garage`,
+    title: `${page.title} | Experts Portes de Garage`,
     description: page.excerpt,
     alternates: {
       canonical: `${BASE_URL}/${slug}`,
     },
     openGraph: {
-      title: `${page.title} — Experts Portes de Garage`,
+      title: `${page.title} | Experts Portes de Garage`,
       description: page.excerpt ?? undefined,
       url: `${BASE_URL}/${slug}`,
       locale: "fr_CA",
@@ -134,6 +148,7 @@ export default async function SlugPage(props: PageProps<"/[slug]">) {
   };
 
   const isCityPage = slug.startsWith("portes-de-garage-");
+  const villeCourte = isCityPage ? ville : undefined;
   const otherCities = CITY_LINKS.filter((c) => c.slug !== slug);
   const cityImage = CITY_IMAGES[slug] ?? null;
   const heroImage = cityImage ?? PAGE_IMAGES[slug] ?? null;
@@ -184,6 +199,15 @@ export default async function SlugPage(props: PageProps<"/[slug]">) {
                   {page.excerpt}
                 </p>
               )}
+              {isCityPage && (
+                <a
+                  href={PHONE_HREF}
+                  data-cta="hero_ville"
+                  className="mt-6 inline-flex items-center gap-3 bg-brand text-white font-heading text-lg px-7 py-3.5 rounded-xl hover:bg-brand-dark transition-colors shadow-lg shadow-brand/30 uppercase tracking-wide"
+                >
+                  Urgence 24/7 : {PHONE_DISPLAY}
+                </a>
+              )}
             </div>
 
             {/* Right — booking card */}
@@ -222,6 +246,31 @@ export default async function SlugPage(props: PageProps<"/[slug]">) {
       </section>
 
       {/* ── 2. INSPECTION BANNER ── */}
+
+      {/* ── 2b. URGENCE (pages villes) : les pannes qui ne peuvent pas attendre ── */}
+      {isCityPage && (
+        <section className="bg-[#1a1a1a] py-10">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <h2 className="font-heading text-2xl md:text-3xl text-white uppercase leading-tight mb-3">
+              Porte bloquée{villeCourte ? ` à ${villeCourte}` : ""}? Je me déplace aujourd&apos;hui
+            </h2>
+            <p className="text-white/70 text-sm md:text-base mb-6">
+              Urgence 24/7, 7 jours sur 7. Sortie d&apos;urgence 400 $, première heure comprise. Si ça peut attendre à demain, c&apos;est le taux normal.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {PANNES.map((p) => (
+                <Link
+                  key={p.href}
+                  href={p.href}
+                  className="px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-sm font-semibold text-white hover:bg-brand hover:border-brand transition-colors"
+                >
+                  {p.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── 3. MAIN CONTENT ── */}
       <div className="bg-white pt-10">
@@ -321,6 +370,8 @@ export default async function SlugPage(props: PageProps<"/[slug]">) {
           </div>
         </section>
       )}
+
+      {isCityPage && <BarreAppelMobile />}
 
       {/* ── 6. LIENS INTERNES VILLES (pages villes seulement) ── */}
       {isCityPage && otherCities.length > 0 && (

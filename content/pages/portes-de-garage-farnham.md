@@ -1,11 +1,11 @@
 ---
-title: "Réparation de Portes de Garage à Farnham"
+title: "Réparation urgente de porte de garage à Farnham"
 slug: "portes-de-garage-farnham"
 date: "2026-09-09"
 status: "publish"
 type: "page"
 link: "https://expertsportesdegarage.ca/portes-de-garage-farnham/"
-excerpt: "Réparation de porte de garage à Farnham. À 25 minutes de Granby par la 104. Ressort cassé, câble brisé, ouvre-porte : réparé le jour même. 438-808-9604."
+excerpt: "Porte de garage bloquée, ressort ou câble cassé à Farnham? Je me déplace aujourd'hui, urgence 24/7. Réparation, ouvre-porte et installation. Appelez le 438-808-9604."
 ---
 
 ## RÉPARATION DE PORTES DE GARAGE À FARNHAM

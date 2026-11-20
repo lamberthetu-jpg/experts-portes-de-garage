@@ -4,7 +4,10 @@ import { getAllPageSlugs, getAllBlogSlugs } from "@/lib/content";
 const BASE_URL = "https://www.expertsportesdegarage.ca";
 
 const CITY_SLUGS = [
-  "portes-de-garage-granby",
+  "portes-de-garage-shefford",
+  "portes-de-garage-roxton-pond",
+  "portes-de-garage-sutton",
+  "portes-de-garage-saint-cesaire",
   "portes-de-garage-saint-hyacinthe",
   "portes-de-garage-magog",
   "portes-de-garage-saint-jean-sur-richelieu",
@@ -25,6 +28,10 @@ const SERVICE_SLUGS = [
   "urgence-porte-de-garage-nuit",
   "reparation-porte-garage-granby",
   "reparation-ouvre-porte-garage-granby",
+  // Pages de pannes (19 nov. 2026).
+  "reparation-cable-porte-de-garage",
+  "porte-de-garage-bloquee-auto-prise",
+  "porte-de-garage-sortie-du-rail",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

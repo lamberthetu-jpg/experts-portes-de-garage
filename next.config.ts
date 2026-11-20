@@ -19,6 +19,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       }))
       .concat([
+        // Deux pages Granby se faisaient concurrence sur Google (19 nov. 2026) :
+        // on garde la page d'atterrissage, plus complète.
+        {
+          source: "/portes-de-garage-granby",
+          destination: "/reparation-porte-garage-granby",
+          permanent: true,
+        },
         // Code QR des autocollants (oct. 2026). Temporaire exprès : on peut
         // changer la destination ici sans réimprimer les autocollants.
         {

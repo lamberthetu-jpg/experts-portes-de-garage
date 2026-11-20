@@ -25,6 +25,10 @@ const PAGE_IMAGES: Record<string, string> = {
 
 const CITY_IMAGES: Record<string, string> = {
   "portes-de-garage-granby": "/images/villes/ville-granby.webp",
+  "portes-de-garage-shefford": "/images/villes/ville-shefford.webp",
+  "portes-de-garage-roxton-pond": "/images/villes/ville-roxton-pond.webp",
+  "portes-de-garage-sutton": "/images/villes/ville-sutton.webp",
+  "portes-de-garage-saint-cesaire": "/images/villes/ville-saint-cesaire.webp",
   "portes-de-garage-saint-hyacinthe": "/images/villes/ville-saint-hyacinthe.webp",
   "portes-de-garage-magog": "/images/villes/ville-magog.webp",
   "portes-de-garage-saint-jean-sur-richelieu": "/images/villes/ville-saint-jean-sur-richelieu.webp",
@@ -45,6 +49,8 @@ const CITY_LINKS = [
   { label: "Bromont", slug: "portes-de-garage-bromont" },
   { label: "Waterloo", slug: "portes-de-garage-waterloo" },
   { label: "Beloeil", slug: "portes-de-garage-beloeil" },
+  { label: "Cowansville", slug: "portes-de-garage-cowansville" },
+  { label: "Farnham", slug: "portes-de-garage-farnham" },
 ];
 
 /** Pannes d'urgence, liées depuis chaque page de ville. */

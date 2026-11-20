@@ -270,7 +270,10 @@ export const LANDING = {
   villes: [
     "Granby", "Bromont", "Waterloo", "Cowansville", "Shefford",
     "Roxton Pond", "Saint-Alphonse-de-Granby", "Saint-Paul-d'Abbotsford",
-    "Farnham", "Sainte-Cécile-de-Milton", "Sutton", "Saint-Césaire",
+    "Farnham", "Sainte-Cécile-de-Milton", "Saint-Césaire", "Brigham", "East Farnham", "Ange-Gardien",
+    "Saint-Pie", "Rougemont", "Warden", "Saint-Joachim-de-Shefford", "Saint-Valérien-de-Milton",
+    "Saint-Dominique", "Sainte-Anne-de-la-Rochelle", "Stukely-Sud", "Roxton Falls", "Béthanie",
+    "Upton", "Lawrenceville",
   ],
 } as const;
 
